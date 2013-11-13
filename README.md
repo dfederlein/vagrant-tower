@@ -23,6 +23,3 @@ vagrant up
 ```
 
 Then log into AWX at https://192.168.250.10/
-
-**Note:** We use a pre-generated SSH key pair to authenticate to the demo
-boxes. Don't use those keys for anything secure.
