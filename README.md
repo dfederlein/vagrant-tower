@@ -14,8 +14,7 @@ Requirements:
 - An Internet connection to create the demo environment.
 
 **Note:** The demo rig itself, once created, should be functional without
-an Internet connection. This will be useful for tradeshows and difficult
-customer environments which do not have reliable network connections.
+an Internet connection. 
 
 To use:
 
