@@ -1,0 +1,20 @@
+---
+# This role contains common plays that will run on all nodes.
+
+- name: Create the repository for EPEL
+  copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
+
+- name: Create the GPG key for EPEL
+  copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+
+- name: remove some useless packages
+  yum: name={{ item }} state=absent
+  with_items:
+  - puppet
+  - chef
+
+- name: install some useful packages 
+  yum: name={{ item }} state=present
+  with_items:
+  - git
+  - ansible

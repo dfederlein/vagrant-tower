@@ -1,0 +1,10 @@
+---
+- name: download AWX setup
+  get_url: url=http://www.ansibleworks.com/releases/awx/setup/awx-setup-{{awx_version}}.tar.gz
+           dest=/opt/ force=yes
+
+- name: extract AWX
+  command: chdir=/opt/ creates=/opt/awx-setup-{{awx_version}} tar zxvf awx-setup-{{awx_version}}.tar.gz
+
+- name: run the AWX installer
+  command: chdir=/opt/awx-setup-{{awx_version}} creates=/etc/awx/settings.py ./setup.sh
