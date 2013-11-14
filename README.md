@@ -31,6 +31,7 @@ Public (bridged NIC) IP:
   end
 
 Private (NAT'ed NIC) IP:
+
   config.vm.define "awx" do |awx|
     awx.vm.network :private_network, ip: "192.168.250.10"
   end
@@ -38,6 +39,7 @@ Private (NAT'ed NIC) IP:
 Or configure as needed per Vagrant docs.
 
 Then:
+
 ```
 vagrant up
 ```
