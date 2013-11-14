@@ -3,10 +3,6 @@ AWX Demo-In-A-Box
 
 This is a AWX demo environment in a box using Vagrant and VirtualBox.
 
-Note:  For now, you must use a CentOS vagrant box (regardless of provider).  
-		To-do: Create a Ubuntu LTS variable set/role dependency for use on either
-				supported platform (RHEL/CentOS and Ubuntu LTS are only supported for AWX.)
-
 Requirements:
 
 - Ansible
