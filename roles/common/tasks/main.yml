@@ -39,4 +39,4 @@
   - python-pip
   - python-jinja2
   - supervisor
-  when: ansible_os_family == "Debian
+  when: ansible_os_family == "Debian"
