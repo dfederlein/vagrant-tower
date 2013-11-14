@@ -25,21 +25,20 @@ First, edit the VagrantFile and comment out the box type you don't want to use.
 Next, set the networking configuration options you want.  For example:
 
 Public (bridged NIC) IP:
-
+```
   config.vm.define "awx" do |awx|
     awx.vm.network :public_network, ip: "XXX.XXX.XXX.XXX"
   end
-
+```
 Private (NAT'ed NIC) IP:
-
+```
   config.vm.define "awx" do |awx|
     awx.vm.network :private_network, ip: "192.168.250.10"
   end
-
+```
 Or configure as needed per Vagrant docs.
 
 Then:
-
 ```
 vagrant up
 ```
