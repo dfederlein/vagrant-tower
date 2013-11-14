@@ -24,7 +24,7 @@
   when: ansible_os_family == "Debian"
 
 - name: install some useful packages 
-  yum: name={{ item }} state=present
+  yum: name={{ item }} state=latest
   with_items:
   - git
   - ansible
@@ -33,10 +33,14 @@
   when: ansible_os_family == "RedHat"
 
 - name: install some useful packages 
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=latest
   with_items:
   - git
   - python-pip
   - python-jinja2
   - supervisor
+  when: ansible_os_family == "Debian"
+
+- name: debian pip ansible install
+  action: command pip install ansible
   when: ansible_os_family == "Debian"
