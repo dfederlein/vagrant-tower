@@ -43,4 +43,5 @@
 
 - name: debian pip ansible install
   action: command pip install ansible
+  sudo: yes
   when: ansible_os_family == "Debian"
