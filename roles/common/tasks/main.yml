@@ -3,18 +3,40 @@
 
 - name: Create the repository for EPEL
   copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
+  when: ansible_os_family == "RedHat"
 
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+  when: ansible_os_family == "RedHat"
 
 - name: remove some useless packages
   yum: name={{ item }} state=absent
   with_items:
   - puppet
   - chef
+  when: ansible_os_family == "RedHat"
+
+- name: remove some useless packages
+  apt: name={{ item }} state=absent
+  with_items:
+  - puppet
+  - chef
+  when: ansible_os_family == "Debian"
 
 - name: install some useful packages 
   yum: name={{ item }} state=present
   with_items:
   - git
   - ansible
+  - supervisord
+  - libselinux-python
+  when: ansible_os_family == "RedHat"
+
+- name: install some useful packages 
+  apt: name={{ item }} state=present
+  with_items:
+  - git
+  - python-pip
+  - python-jinja2
+  - supervisor
+  when: ansible_os_family == "Debian
