@@ -6,6 +6,7 @@
   - supervisor
   - libselinux-python
   - python-pip
+  - python-jinja2
   when: ansible_os_family == "RedHat"
 
 - name: debian pip ansible install
