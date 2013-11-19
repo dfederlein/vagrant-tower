@@ -7,6 +7,7 @@
   - libselinux-python
   - python-pip
   - python-jinja2
+  - python-devel
   when: ansible_os_family == "RedHat"
 
 - name: debian pip ansible install
@@ -23,10 +24,9 @@
   - supervisor
   when: ansible_os_family == "Debian"
 
-- name: debian pip ansible install
+- name: pip ansible install
   action: command pip install ansible
   sudo: yes
-  when: ansible_os_family == "Debian"
 
 - name: download AWX setup
   get_url: url=http://www.ansibleworks.com/releases/awx/setup/awx-setup-{{awx_version}}.tar.gz
