@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #  config.vm.box_url = 'https://vagranttestboxes-awx.s3.amazonaws.com/ubuntu1204LTS64vagrantminimal.box'
 
   config.vm.define "awx" do |awx|
-    awx.vm.network :public_network, ip: "192.168.250.10"
+    awx.vm.network :private_network, ip: "192.168.250.10"
   end
  
   config.vm.provision "ansible" do |ansible|
