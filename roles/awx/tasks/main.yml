@@ -3,7 +3,7 @@
   yum: name={{ item }} state=latest
   with_items:
   - git
-  - supervisord
+  - supervisor
   - libselinux-python
   - python-pip
   when: ansible_os_family == "RedHat"
