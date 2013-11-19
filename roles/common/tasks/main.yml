@@ -27,9 +27,14 @@
   yum: name={{ item }} state=latest
   with_items:
   - git
-  - ansible
   - supervisord
   - libselinux-python
+  - python-pip
+  when: ansible_os_family == "RedHat"
+
+- name: debian pip ansible install
+  action: command pip install ansible
+  sudo: yes
   when: ansible_os_family == "RedHat"
 
 - name: install some useful packages 
