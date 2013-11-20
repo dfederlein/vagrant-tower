@@ -1,14 +1,12 @@
 ---
+- name: Configure demo boxes
+  hosts: all
+
+  roles:
+  - common
+
 - name: Deploy AWX
   hosts: awx
 
   roles:
-  - common
   - awx
-
-- name: Configure demo boxes
-  hosts: web1 db1 lb1 nagios
-
-  roles:
-  - common
-  - demobox
