@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     web1.vm.network :private_network, ip: "192.168.250.11"
   end  
 
-  config.vm.define "web1" do |web2|
+  config.vm.define "web2" do |web2|
     web1.vm.network :private_network, ip: "192.168.250.12"
   end  
 
