@@ -11,6 +11,8 @@ Requirements:
 - An Internet connection to create the demo environment.
 - The ability to run 6 VM's on the host you are using this on.
 
+To install the first three requirements, please see http://docs.vagrantup.com/
+
 **Note:** The demo instance itself, once created, should be functional without
 an Internet connection. 
 
