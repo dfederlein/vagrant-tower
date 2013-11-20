@@ -61,4 +61,9 @@ Then:
 vagrant up
 ```
 
-Then log into AWX at https://192.168.250.10 or the IP you have specified.
+Then log into AWX at https://192.168.250.10 or the IP you have specified, or to use ansible CLI:
+```
+vagrant ssh awx
+```
+
+Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook.  from the ansible CLI, you can modify then execute this playbook as you see fit to learn more about ansible CLI.  
