@@ -40,13 +40,13 @@
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
 - name: create directory for example playbook
-  action: file dest={{gitdir}} state=directory
+  action: file dest={{playbookdir}} state=directory
 
 - name: move example playbook
-  copy: src=lamp_haproxy.zip dest-{{gitdir}}
+  copy: src=lamp_haproxy.zip dest={{playbookdir}}
 
 - name: extract example playbook
-  command: chdir={{gitdir}} creates={{gitdir}}/lamp_haproxy unzip lamp_haproxy.zip
+  command: chdir={{playbookdir}} creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
 
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
