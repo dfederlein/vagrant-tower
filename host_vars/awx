@@ -4,3 +4,4 @@ gitdir: /home/vagrant/ansible
 gitrepo: https://github.com/ansible/ansible-examples.git
 keydir: /home/vagrant/.ssh
 hostfile: /etc/ansible/hosts
+configdir: /etc/ansible

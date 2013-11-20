@@ -37,15 +37,15 @@
 - name: set up private keys for demo boxes
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
-- name: populate ansible cfg
-  copy: src=ansible.cfg dest=/home/vagrant/.ansible.cfg
-
 - name: Clone git repo for example playbooks
   action: file dest={{gitdir}} state=directory
   action: git repo={{gitrepo}} dest={{gitdir}}
 
 - name: create etc ansible directory
-  action: file dest=/etc/ansible state=directory
+  action: file dest={{configdir}} state=directory
+
+- name: populate ansible cfg
+  copy: src=ansible.cfg dest=/{{configdir}}
 
 - name: populate ansible hosts inventory
   copy: src=hosts dest={{hostfile}}
