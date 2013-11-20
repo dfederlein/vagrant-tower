@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end  
 
   config.vm.define "web2" do |web2|
-    web1.vm.network :private_network, ip: "192.168.250.12"
+    web2.vm.network :private_network, ip: "192.168.250.12"
   end  
 
   config.vm.define "db1" do |db1|
@@ -38,7 +38,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "demo-site.yml"
     ansible.verbose = "v"
-    ansible.remote_user = "vagrant"
     ansible.sudo = true
     ansible.sudo_user = "root"
     ansible.host_key_checking = "false"
