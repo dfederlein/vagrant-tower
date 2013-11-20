@@ -15,7 +15,7 @@ an Internet connection.
 
 To use:
 
-First, edit the Vagrantfile and comment out the box type you don't want to use.  Included is a minimal CentOS and a minimal Ubuntu 12.04 LTS or you can specify your own.
+First, understand that this demo kit requires either a CentOS 6 or Ubuntu LTS vagrant box.  Add box name and url accordingly to the vagrant file.
 
 Next, set the networking configuration options you want in the Vagrantfile.  For example:
 
