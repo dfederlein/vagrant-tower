@@ -1,7 +1,14 @@
 ---
 - name: Deploy AWX
   hosts: awx
-  
+
   roles:
   - common
   - awx
+
+- name: Configure demo boxes
+  hosts: demobox*
+
+  roles:
+  - common
+  - demobox

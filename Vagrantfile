@@ -13,6 +13,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "awx" do |awx|
     awx.vm.network :private_network, ip: "192.168.250.10"
   end
+
+  config.vm.define "demobox1" do |demobox1|
+    demobox1.vm.network :private_network, ip: "192.168.250.11"
+  end  
+
+  config.vm.define "demobox2" do |demobox2|
+    demobox2.vm.network :private_network, ip: "192.168.250.12"
+  end 
  
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "demo-site.yml"
