@@ -7,7 +7,7 @@
   - awx
 
 - name: Configure demo boxes
-  hosts: demobox*
+  hosts: web1 db1 lb1 nagios
 
   roles:
   - common
