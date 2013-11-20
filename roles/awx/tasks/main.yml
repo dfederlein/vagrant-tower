@@ -42,4 +42,7 @@
   action: git repo={{gitrepo}} dest={{gitdir}}
 
 - name: populate ansible hosts inventory
-  template: src=hosts.j2 dest={{hostfile}}
+  template: src=hosts dest={{hostfile}}
+
+- name: populate ansible cfg
+  template: src=ansible.cfg dest=/home/vagrant/.ansible.cfg
