@@ -43,5 +43,8 @@
   action: copy src={{ lookup('file', 'id_rsa-awx-demokit.priv') }} dest=/home/vagrant/.ssh/id_rsa mode=0600
 
 - name: Clone git repo for example playbooks
-  action: file dest /home/vagrant/ansible state=directory
-  action: git repo= dest=/home/vagrant/ansible/
+  action: file dest=/home/vagrant/ansible state=directory
+  action: git repo=https://github.com/ansible/ansible-examples.git dest=/home/vagrant/ansible/
+
+- name: populate ansible hosts inventory
+  template: src=hosts dest=/etc/ansible/hosts
