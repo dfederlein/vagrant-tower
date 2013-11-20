@@ -8,6 +8,7 @@
   - python-pip
   - python-jinja2
   - python-devel
+  - unzip
   when: ansible_os_family == "RedHat"
 
 - name: install some useful packages 
@@ -18,6 +19,7 @@
   - python-jinja2
   - supervisor
   - libselinux-python
+  - unzip
   when: ansible_os_family == "Debian"
 
 - name: pip ansible install
@@ -37,9 +39,14 @@
 - name: set up private keys for demo boxes
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
-- name: clone git repo for example playbooks
+- name: create directory for example playbook
   action: file dest={{gitdir}} state=directory
-  action: git repo={{gitrepo}} dest={{gitdir}}
+
+- name: move example playbook
+  copy: src=lamp_haproxy.zip dest-{{gitdir}}
+
+- name: extract example playbook
+  command: chdir={{gitdir}} creates={{gitdir}}/lamp_haproxy unzip lamp_haproxy.zip
 
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
