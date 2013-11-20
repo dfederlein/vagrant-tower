@@ -44,9 +44,11 @@
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
 
-- name: populate etc ansible directory
-  action: copy src=ansible.cfg dest=/{{configdir}}
-  action: copy src=hosts dest={{hostfile}}
+- name: populate etc ansible hosts
+  copy: src=hosts dest={{hostfile}}
+
+- name: populate etc ansible config
+  copy: src=ansible.cfg dest=/{{configdir}}
 
 - name: fix permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
