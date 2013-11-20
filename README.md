@@ -68,4 +68,13 @@ Then log into AWX at https://192.168.250.10 or the IP you have specified, or to 
 vagrant ssh awx
 ```
 
-Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook.  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.  
+Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook.  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
+```
+cd /home/vagrant/ansible/lamp_haproxy/
+ansible-playbook site.yml
+```
+
+**TO-DO**
+
+1) Agnosticity between CentOS and Ubuntu LTS
+2) pre-populate AWX with org/team/user/credential/inventory/playbook information  
