@@ -41,14 +41,11 @@
   action: file dest={{gitdir}} state=directory
   action: git repo={{gitrepo}} dest={{gitdir}}
 
-- name: create etc ansible directory
+- name: populate etc ansible directory
   action: file dest={{configdir}} state=directory
-
-- name: populate ansible cfg
-  copy: src=ansible.cfg dest=/{{configdir}}
-
-- name: populate ansible hosts inventory
-  copy: src=hosts dest={{hostfile}}
+  action: copy src=ansible.cfg dest=/{{configdir}}
+  action: copy src=hosts dest={{hostfile}}
 
 - name: fix permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
+
