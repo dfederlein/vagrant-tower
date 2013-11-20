@@ -9,18 +9,6 @@
   - python-jinja2
   - python-devel
   - unzip
-  when: ansible_os_family == "RedHat"
-
-- name: install some useful packages 
-  apt: name={{ item }} state=latest
-  with_items:
-  - git
-  - python-pip
-  - python-jinja2
-  - supervisor
-  - libselinux-python
-  - unzip
-  when: ansible_os_family == "Debian"
 
 - name: pip ansible install
   action: command pip install ansible
@@ -59,4 +47,3 @@
 
 - name: fix permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
-

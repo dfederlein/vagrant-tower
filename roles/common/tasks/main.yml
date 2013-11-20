@@ -3,25 +3,15 @@
 
 - name: Create the repository for EPEL
   copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
-  when: ansible_os_family == "RedHat"
 
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
-  when: ansible_os_family == "RedHat"
 
 - name: remove some useless packages
   yum: name={{ item }} state=absent
   with_items:
   - puppet
   - chef
-  when: ansible_os_family == "RedHat"
-
-- name: remove some useless packages
-  apt: name={{ item }} state=absent
-  with_items:
-  - puppet
-  - chef
-  when: ansible_os_family == "Debian"
 
 - name: set up authorized keys for demo boxes
   authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
