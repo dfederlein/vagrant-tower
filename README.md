@@ -9,9 +9,32 @@ Requirements:
 - Vagrant
 - VirtualBox
 - An Internet connection to create the demo environment.
+- The ability to run 6 VM's on the host you are using this on.
 
 **Note:** The demo instance itself, once created, should be functional without
 an Internet connection. 
+
+Hosts:
+
+Once up, your demo boxes will be as follows:
+```
+[awx]
+awx ansible_ssh_host=192.168.250.10
+
+[webservers]
+web1 ansible_ssh_host=192.168.250.11
+web2 ansible_ssh_host=192.168.250.12
+
+[dbservers]
+db1 ansible_ssh_host=192.168.250.13
+
+[lbservers]
+lb1 ansible_ssh_host=192.168.250.14
+
+[monitoring]
+nagios ansible_ssh_host=192.168.250.15
+```
+Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg (See below about nat vs. bridges IPs)
 
 To use:
 
@@ -38,4 +61,4 @@ Then:
 vagrant up
 ```
 
-Then log into AWX at your specified IP.
+Then log into AWX at https://192.168.250.10 or the IP you have specified.
