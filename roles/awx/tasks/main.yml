@@ -35,14 +35,14 @@
   command: chdir=/opt/awx-setup-{{awx_version}} creates=/etc/awx/settings.py ./setup.sh
 
 - name: set up private keys for demo boxes
-  action: copy src={{ lookup('file', 'id_rsa') }} dest={{keydir}}/id_rsa mode=0600
+  copy: src=files/id_rsa dest={{keydir}}/id_rsa mode=0600
 
 - name: Clone git repo for example playbooks
   action: file dest={{gitdir}} state=directory
   action: git repo={{gitrepo}} dest={{gitdir}}
 
 - name: populate ansible hosts inventory
-  template: src=hosts dest={{hostfile}}
+  copy: src=templates/hosts dest={{hostfile}}
 
 - name: populate ansible cfg
-  template: src=ansible.cfg dest=/home/vagrant/.ansible.cfg
+  copy: src=templates/ansible.cfg dest=/home/vagrant/.ansible.cfg
