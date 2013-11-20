@@ -14,16 +14,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     awx.vm.network :private_network, ip: "192.168.250.10"
   end
 
-  config.vm.define "demobox1" do |demobox1|
-    demobox1.vm.network :private_network, ip: "192.168.250.11"
+  config.vm.define "web1" do |web1|
+    web1.vm.network :private_network, ip: "192.168.250.11"
   end  
 
-  config.vm.define "demobox2" do |demobox2|
-    demobox2.vm.network :private_network, ip: "192.168.250.12"
+  config.vm.define "db1" do |db1|
+    db1.vm.network :private_network, ip: "192.168.250.12"
   end 
 
-  config.vm.define "demobox3" do |demobox2|
-    demobox2.vm.network :private_network, ip: "192.168.250.13"
+  config.vm.define "lb1" do |lb1|
+    lb1.vm.network :private_network, ip: "192.168.250.13"
+  end 
+
+  config.vm.define "nagios" do |nagios|
+    nagios.vm.network :private_network, ip: "192.168.250.14"
   end 
  
   config.vm.provision "ansible" do |ansible|
