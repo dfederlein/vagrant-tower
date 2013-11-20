@@ -19,16 +19,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     web1.vm.network :private_network, ip: "192.168.250.11"
   end  
 
+  config.vm.define "web1" do |web2|
+    web1.vm.network :private_network, ip: "192.168.250.12"
+  end  
+
   config.vm.define "db1" do |db1|
-    db1.vm.network :private_network, ip: "192.168.250.12"
+    db1.vm.network :private_network, ip: "192.168.250.13"
   end 
 
   config.vm.define "lb1" do |lb1|
-    lb1.vm.network :private_network, ip: "192.168.250.13"
+    lb1.vm.network :private_network, ip: "192.168.250.14"
   end 
 
   config.vm.define "nagios" do |nagios|
-    nagios.vm.network :private_network, ip: "192.168.250.14"
+    nagios.vm.network :private_network, ip: "192.168.250.15"
   end 
  
   config.vm.provision "ansible" do |ansible|

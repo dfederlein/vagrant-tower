@@ -37,7 +37,7 @@
 - name: set up private keys for demo boxes
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
-- name: Clone git repo for example playbooks
+- name: clone git repo for example playbooks
   action: file dest={{gitdir}} state=directory
   action: git repo={{gitrepo}} dest={{gitdir}}
 
