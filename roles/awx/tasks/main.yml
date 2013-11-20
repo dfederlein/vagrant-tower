@@ -39,6 +39,9 @@
   command: chdir=/opt/awx-setup-{{awx_version}} creates=/etc/awx/settings.py ./setup.sh
 
 - name: set up private keys for demo boxes
-  action: file dest=/home/ansible/.ssh state=directory mode=0700
-  action: copy src="{{ lookup('file', 'id_rsa-awx-demokit.priv') }}" dest=/home/vagrant/.ssh/id_rsa mode=0600
+  action: file dest=/home/vagrant/.ssh state=directory mode=0700
+  action: copy src={{ lookup('file', 'id_rsa-awx-demokit.priv') }} dest=/home/vagrant/.ssh/id_rsa mode=0600
 
+- name: Clone git repo for example playbooks
+  action: file dest /home/vagrant/ansible state=directory
+  action: git repo= dest=/home/vagrant/ansible/
