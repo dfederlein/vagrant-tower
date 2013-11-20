@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "centos64vagrantminimal"
-#  config.vm.box_url = ''
+  config.vm.box_url = ''
 
   config.vm.define "awx" do |awx|
     awx.vm.network :private_network, ip: "192.168.250.10"
