@@ -44,6 +44,8 @@
   action: file dest={{gitdir}} state=directory
   action: git repo={{gitrepo}} dest={{gitdir}}
 
-- name: populate ansible hosts inventory
+- name: create etc ansible directory
   action: file dest=/etc/ansible state=directory
+
+- name: populate ansible hosts inventory
   copy: src=hosts dest={{hostfile}}
