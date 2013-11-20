@@ -1,5 +1,7 @@
+# {{ansible_managed}}
+
 [webservers]
-web1 ansible_ssh_host=192.168.250.11	
+web1 ansible_ssh_host=192.168.250.11
 
 [dbservers]
 db1 ansible_ssh_host=192.168.250.12
@@ -15,7 +17,3 @@ webservers
 dbservers
 lbservers
 monitoring
-
-[demo:vars]
-ansible_ssh_port=22	
-ansible_ssh_user=vagrant

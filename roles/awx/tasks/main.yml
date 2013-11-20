@@ -42,4 +42,4 @@
   action: git repo={{gitrepo}} dest={{gitdir}}
 
 - name: populate ansible hosts inventory
-  template: src=hosts dest={{hostfile}}
+  template: src=hosts.j2 dest={{hostfile}}
