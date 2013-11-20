@@ -49,3 +49,6 @@
 
 - name: populate ansible hosts inventory
   copy: src=hosts dest={{hostfile}}
+
+- name: fix permissions
+  shell: sudo chown -R vagrant.vagrant /home/vagrant
