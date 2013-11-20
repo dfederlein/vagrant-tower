@@ -34,7 +34,7 @@ lb1 ansible_ssh_host=192.168.250.14
 [monitoring]
 nagios ansible_ssh_host=192.168.250.15
 ```
-Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg (See below about nat vs. bridges IPs)
+Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg (See below about nat vs. bridged IPs)
 
 To use:
 
@@ -66,4 +66,4 @@ Then log into AWX at https://192.168.250.10 or the IP you have specified, or to 
 vagrant ssh awx
 ```
 
-Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook.  from the ansible CLI, you can modify then execute this playbook as you see fit to learn more about ansible CLI.  
+Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook.  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.  
