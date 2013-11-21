@@ -48,6 +48,8 @@ Then:
 vagrant up
 ```
 
+Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg to match Vagrantfile entries.
+
 Virtual Hosts:
 
 Once up, your demo boxes will be as follows:
@@ -68,8 +70,6 @@ lb1 ansible_ssh_host=192.168.250.14
 [monitoring]
 nagios ansible_ssh_host=192.168.250.15
 ```
-
-Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg to match Vagrantfile entries
 
 **GETTING STARTED**
 
