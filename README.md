@@ -73,7 +73,9 @@ Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx
 
 **GETTING STARTED**
 
-Now you can log into AWX at https://192.168.250.10 or the IP you have specified, or to use ansible CLI on the awx host:
+Now you can log into AWX at https://192.168.250.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansibleworks.com/releases/awx/docs/awx_user_guide-latest.pdf
+
+To use the ansible CLI on the awx host:
 ```
 vagrant ssh awx
 ```
@@ -83,6 +85,8 @@ Located in /home/vagrant/ansible is a playbook taken from https://github.com/ans
 cd /home/vagrant/ansible/lamp_haproxy/
 ansible-playbook site.yml
 ```
+
+Further material to get you started in ansible CLI can be found here:  http://www.ansibleworks.com/docs/
 
 **TO-DO**
 
