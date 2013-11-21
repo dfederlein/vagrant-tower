@@ -3,11 +3,12 @@ AWX Demo-In-A-Box
 
 This is a AWX demo environment in a box using Vagrant and VirtualBox.
 
-Requirements:
+Host Machine Requirements:
 
 - Ansible
 - Vagrant
 - VirtualBox
+- Git 
 - An Internet connection to create the demo environment.
 - The ability to run 6 VM's on the host you are using this on. (included CentOS vagrantbox uses 10g root filesystem and 1g ram max, is thin provisioned.)
 
@@ -40,6 +41,11 @@ Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx
 **INSTRUCTIONS:**
 
 This demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  To use your own, add box name and url accordingly to the vagrant file. Currently, this has a Centos6.4 box I created coming from my S3 bucket, these may not exist in the future.  You can build your own, given the image is built to the vagrant instructions found here: https://gist.github.com/luis-ca/1327607 , or you can pull from http://www.vagrantbox.es/ 
+
+To clone this demo to your local machine, execute the following command:
+```
+git clone https://github.com/dfederlein/vagrant-awx.git
+```
 
 First, set the networking configuration options you want in the Vagrantfile.  If you only intend to test this on your personal desktop or laptop, leave "private_network" in place.  If you want to demonstrate this for others on your local LAN, use "public_network" and set your IP addresses according to your local LAN subnet.  For example:
 
