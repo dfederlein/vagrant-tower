@@ -46,4 +46,4 @@
   copy: src=ansible.cfg dest=/{{configdir}}
 
 - name: fix permissions
-  shell: sudo chown -R vagrant.vagrant /home/vagrant
+  shell: sudo chown -R vagrant.vagrant /home/vagrant/.ssh
