@@ -47,6 +47,3 @@
 
 - name: fix permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
-
-- name: check ansible ping
-  shell: ansible all -m ping
