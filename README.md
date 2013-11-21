@@ -39,9 +39,9 @@ Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx
 
 **INSTRUCTIONS:**
 
-First, understand that this demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  Add box name and url accordingly to the vagrant file. Currently, this has a Centos6.4 box I created coming from my S3 bucket, these may not exist in the future, plese use your own.  Minimal installs of either OS is fine, given the image is built to the vagrant instructions, or you can pull from http://www.vagrantbox.es/ 
+This demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  To use your own, add box name and url accordingly to the vagrant file. Currently, this has a Centos6.4 box I created coming from my S3 bucket, these may not exist in the future.  You can build your own, given the image is built to the vagrant instructions found here: https://gist.github.com/luis-ca/1327607 , or you can pull from http://www.vagrantbox.es/ 
 
-Next, set the networking configuration options you want in the Vagrantfile.  For example:
+First, set the networking configuration options you want in the Vagrantfile.  If you only intend to test this on your personal desktop or laptop, leave "private_network" in place.  If you want to demonstrate this for others on your local LAN, use "public_network" and set your IP addresses according to your local LAN subnet.  For example:
 
 Public (bridged NIC) IP:
 ```
