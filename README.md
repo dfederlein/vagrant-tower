@@ -20,7 +20,7 @@ To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and htt
 
 **INSTRUCTIONS:**
 
-This demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  To use your own, add box name and url accordingly to the vagrant file. Currently, this has a Centos6.4 box I created coming from my S3 bucket, these may not exist in the future.  You can build your own, given the image is built to the vagrant instructions found here: https://gist.github.com/luis-ca/1327607 , or you can pull from http://www.vagrantbox.es/ 
+This demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  To use your own, add box name and url accordingly to the vagrant file. You can build your own, given the image is built to the vagrant instructions (and includes VirtualBox additions), or you can pull from http://www.vagrantbox.es/ 
 
 To clone this demo to your local machine, execute the following command:
 ```
