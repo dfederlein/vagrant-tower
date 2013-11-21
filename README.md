@@ -7,7 +7,7 @@ Host Machine Requirements:
 
 - Ansible (version 1.3.X or later)
 - Vagrant (version 1.3.3 or later)
-- VirtualBox (version 4.3 or later)
+- VirtualBox (version 4.3 or later with Oracle VM VirtualBox Extension Pack installed.)
 - Git 
 - An Internet connection to create the demo environment.
 - The ability to run 6 VM's on the host you are using this on. (included CentOS vagrantbox uses 10g root filesystem and 1g ram max, is thin provisioned.)
