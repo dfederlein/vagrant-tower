@@ -75,5 +75,5 @@ ansible-playbook site.yml
 
 **TO-DO**
 
-1) Agnosticity between CentOS and Ubuntu LTS
-2) pre-populate AWX with org/team/user/credential/inventory/playbook information to match CLI env inventory and playbook.
+- Agnosticity between CentOS and Ubuntu LTS
+- Pre-populate AWX with org/team/user/credential/inventory/playbook information to match CLI env inventory and playbook.
