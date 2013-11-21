@@ -88,6 +88,12 @@ ansible-playbook site.yml
 
 Further material to get you started in ansible CLI can be found here:  http://www.ansibleworks.com/docs/
 
+**TROUBLESHOOTING**
+
+- if for some reason the initial vagrant up command fails, make sure you vagrant destroy all machines before re-running the playbook or you may end up with missed plays.
+- if you have changed the IP addresses from above, you may need to adjust group variables in the example lamp_haproxy playbook to match your changes.  For example, in group_vars/lbservers you may need to change iface: eth1 to eth0.  The same would be true for group_vars/webservers.
+- Using the static IPs above with VirtualBox means each machine will have two interfaces on two subnets.  One will be the default NAT'ed subnet for VirtualBox, the other the subnet you've specified.  This is true whether using private or public settings.  Adjust wanted communication paths in your playbooks accordingly, all subnets are functional on these hosts.
+
 **TO-DO**
 
 - Agnosticity between CentOS and Ubuntu LTS
