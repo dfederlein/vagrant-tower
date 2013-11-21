@@ -28,13 +28,10 @@
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
 - name: move example playbook
-  copy: src=lamp_haproxy.zip dest={{playbookdir}}
+  copy: src=lamp_haproxy.zip dest=/home/vagrant
 
 - name: extract example playbook
-  command: chdir={{playbookdir}} creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
-
-- name: link playbookdir to home directory
-  shell: ln -s {{playbookdir}} /home/vagrant/projects
+  command: chdir=/home/vagrant creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
 
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
