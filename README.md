@@ -12,7 +12,9 @@ Host Machine Requirements:
 - An Internet connection to create the demo environment.
 - The ability to run 6 VM's on the host you are using this on. (included CentOS vagrantbox uses 10g root filesystem and 1g ram max, is thin provisioned.)
 
-To install the first three requirements, please see http://docs.vagrantup.com/
+Ansible install instructions here: http://www.ansibleworks.com/docs/intro_installation.html
+
+To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and https://www.virtualbox.org/wiki/Downloads
 
 **Note:** The demo requires an internet connection on your host machine both to set itself up and to deploy the included lamp_haproxy playbook. 
 
