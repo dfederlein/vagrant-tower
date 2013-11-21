@@ -1,6 +1,6 @@
 ---
 awx_version: 1.3.1
-playbookdir: /home/vagrant/ansible
+playbookdir: /var/lib/awx/projects
 keydir: /home/vagrant/.ssh
 hostfile: /etc/ansible/hosts
 configdir: /etc/ansible

@@ -27,14 +27,14 @@
 - name: set up private keys for demo boxes
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
-- name: create directory for example playbook
-  action: file dest={{playbookdir}} state=directory
-
 - name: move example playbook
   copy: src=lamp_haproxy.zip dest={{playbookdir}}
 
 - name: extract example playbook
   command: chdir={{playbookdir}} creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
+
+- name: link playbookdir to home directory
+  shell: ln -s {{playbookdir}} /home/vagrant/projects
 
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
@@ -47,3 +47,6 @@
 
 - name: fix permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
+
+- name: check ansible ping
+  shell: ansible all -m ping
