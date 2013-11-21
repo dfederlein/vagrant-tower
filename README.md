@@ -22,6 +22,8 @@ To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and htt
 
 This demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  To use your own, add box name and url accordingly to the vagrant file. You can build your own, given the image is built to the vagrant instructions (and includes VirtualBox additions), or you can pull from http://www.vagrantbox.es/ 
 
+I would suggest that the included Vagrantbox be used, however using another should work fine (I haven't tested this with other CentOS Vagrant boxes yet.)
+
 To clone this demo to your local machine, execute the following command:
 ```
 git clone https://github.com/dfederlein/vagrant-awx.git
