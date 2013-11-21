@@ -18,28 +18,6 @@ To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and htt
 
 **Note:** The demo requires an internet connection on your host machine both to set itself up and to deploy the included lamp_haproxy playbook. 
 
-Hosts:
-
-Once up, your demo boxes will be as follows:
-```
-[awx]
-awx ansible_ssh_host=192.168.250.10
-
-[webservers]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
-
-[dbservers]
-db1 ansible_ssh_host=192.168.250.13
-
-[lbservers]
-lb1 ansible_ssh_host=192.168.250.14
-
-[monitoring]
-nagios ansible_ssh_host=192.168.250.15
-```
-Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg (See below about nat vs. bridged IPs)
-
 **INSTRUCTIONS:**
 
 This demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  To use your own, add box name and url accordingly to the vagrant file. Currently, this has a Centos6.4 box I created coming from my S3 bucket, these may not exist in the future.  You can build your own, given the image is built to the vagrant instructions found here: https://gist.github.com/luis-ca/1327607 , or you can pull from http://www.vagrantbox.es/ 
@@ -70,7 +48,32 @@ Then:
 vagrant up
 ```
 
-Then log into AWX at https://192.168.250.10 or the IP you have specified, or to use ansible CLI:
+Virtual Hosts:
+
+Once up, your demo boxes will be as follows:
+```
+[awx]
+awx ansible_ssh_host=192.168.250.10
+
+[webservers]
+web1 ansible_ssh_host=192.168.250.11
+web2 ansible_ssh_host=192.168.250.12
+
+[dbservers]
+db1 ansible_ssh_host=192.168.250.13
+
+[lbservers]
+lb1 ansible_ssh_host=192.168.250.14
+
+[monitoring]
+nagios ansible_ssh_host=192.168.250.15
+```
+
+Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg to match Vagrantfile entries
+
+**GETTING STARTED**
+
+Now you can log into AWX at https://192.168.250.10 or the IP you have specified, or to use ansible CLI on the awx host:
 ```
 vagrant ssh awx
 ```
