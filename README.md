@@ -43,12 +43,12 @@ Private (NAT'ed NIC) IP:
 ```
 Or configure as needed per Vagrant docs.
 
+Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg to match Vagrantfile entries.
+
 Then:
 ```
 vagrant up
 ```
-
-Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg to match Vagrantfile entries.
 
 Virtual Hosts:
 
