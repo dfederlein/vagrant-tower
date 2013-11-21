@@ -13,8 +13,7 @@ Requirements:
 
 To install the first three requirements, please see http://docs.vagrantup.com/
 
-**Note:** The demo instance itself, once created, should be functional without
-an Internet connection. 
+**Note:** The demo requires an internet connection on your host machine both to set itself up and to deploy the included lamp_haproxy playbook. 
 
 Hosts:
 
