@@ -37,7 +37,7 @@ nagios ansible_ssh_host=192.168.250.15
 ```
 Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg (See below about nat vs. bridged IPs)
 
-**To use:**
+**INSTRUCTIONS:**
 
 First, understand that this demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  Add box name and url accordingly to the vagrant file. Currently, this has a Centos6.4 box I created coming from my S3 bucket, these may not exist in the future, plese use your own.  Minimal installs of either OS is fine, given the image is built to the vagrant instructions, or you can pull from http://www.vagrantbox.es/ 
 
