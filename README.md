@@ -9,7 +9,7 @@ Requirements:
 - Vagrant
 - VirtualBox
 - An Internet connection to create the demo environment.
-- The ability to run 6 VM's on the host you are using this on.
+- The ability to run 6 VM's on the host you are using this on. (included CentOS vagrantbox uses 10g root filesystem and 1g ram max, is thin provisioned.)
 
 To install the first three requirements, please see http://docs.vagrantup.com/
 
