@@ -68,9 +68,6 @@ db1 ansible_ssh_host=192.168.250.13
 
 [lbservers]
 lb1 ansible_ssh_host=192.168.250.14
-
-[monitoring]
-nagios ansible_ssh_host=192.168.250.15
 ```
 
 **GETTING STARTED**
@@ -82,7 +79,7 @@ To use the ansible CLI on the awx host:
 vagrant ssh awx
 ```
 
-Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook.  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
+Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook (though the included version is modified somewhat.)  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
 ```
 cd /home/vagrant/ansible/lamp_haproxy/
 ansible-playbook site.yml

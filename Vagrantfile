@@ -5,8 +5,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos64-x86_64-20131030"
-  config.vm.box_url = 'https://github.com/2creatives/vagrant-centos/releases/download/v0.1.0/centos64-x86_64-20131030.box'
+  config.vm.box = "centos64vagrantminimal"
+  config.vm.box_url = 'https://vagrantboxdfed.s3.amazonaws.com/centos64vagrantminimal.box'
 
   config.vm.define "awx" do |awx|
     awx.vm.network :private_network, ip: "192.168.250.10"
@@ -26,10 +26,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "lb1" do |lb1|
     lb1.vm.network :private_network, ip: "192.168.250.14"
-  end 
-
-  config.vm.define "nagios" do |nagios|
-    nagios.vm.network :private_network, ip: "192.168.250.15"
   end 
  
   config.vm.provision "ansible" do |ansible|
