@@ -47,3 +47,6 @@
 
 - name: fix permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant/.ssh
+
+- name: rsync playbook to awx projects folder
+  command: rsync -a {{playbookdir}}/ /var/lib/awx/projects/
