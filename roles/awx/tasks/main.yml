@@ -27,6 +27,9 @@
 - name: set up private keys for demo boxes
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
+- name: create playbook dir for user
+  action: file dest={{playbookdir}} state=directory
+
 - name: move example playbook
   copy: src=lamp_haproxy.zip dest=/home/vagrant
 
