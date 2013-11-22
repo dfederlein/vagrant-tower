@@ -31,10 +31,10 @@
   action: file dest={{playbookdir}} state=directory
 
 - name: move example playbook
-  copy: src=lamp_haproxy.zip dest=/home/vagrant
+  copy: src=lamp_haproxy.zip dest={{playbookdir}}
 
 - name: extract example playbook
-  command: chdir=/home/vagrant creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
+  command: chdir={{playbookdir}} creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
 
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
