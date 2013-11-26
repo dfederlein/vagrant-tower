@@ -74,6 +74,11 @@ lb1 ansible_ssh_host=192.168.250.14
 
 Now you can log into AWX at https://192.168.250.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansibleworks.com/releases/awx/docs/awx_user_guide-latest.pdf
 
+The user to log in as is:
+
+User: admin
+Password: password
+
 To use the ansible CLI on the awx host:
 ```
 vagrant ssh awx
