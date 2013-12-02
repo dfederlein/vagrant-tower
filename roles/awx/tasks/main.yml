@@ -34,7 +34,7 @@
   copy: src=lamp_haproxy.zip dest={{playbookdir}}
 
 - name: move another example playbook
-  copy: src=jboss-standalone.zip dest={{playbookdir}}
+  copy: src=jboss.zip dest={{playbookdir}}
 
 - name: extract example playbook
   command: chdir={{playbookdir}} creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
