@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     db1.vm.network :private_network, ip: "192.168.250.13"
   end 
 
-  config.vm.define "lb1" do |lb1|
+  config.vm.define "web3" do |web3|
     lb1.vm.network :private_network, ip: "192.168.250.14"
   end 
  
