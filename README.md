@@ -79,6 +79,14 @@ The user to log in as is:
 User: admin
 Password: password
 
+Once you have logged in, you can create your Organization, Users, Teams, Inventories and Credentials.  When creating Projects, you will be able to select the example lamp_haproxy playbook project folder (initial deploy of demo places that for you.)  To import the provided host inventory from CLI to AWX, log into the awx host, su to root and run the following commands:
+
+```
+vagrant ssh awx
+sudo su -
+awx-manage inventory_import --source=/etc/ansible/hosts --inventory-name=(your created inventory name)
+```
+
 To use the ansible CLI on the awx host:
 ```
 vagrant ssh awx
