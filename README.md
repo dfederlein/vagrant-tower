@@ -68,6 +68,9 @@ db1 ansible_ssh_host=192.168.250.13
 
 [lbservers]
 web3 ansible_ssh_host=192.168.250.14
+
+[monitoring]
+mn1 ansible_ssh_host=192.168.250.15
 ```
 
 **GETTING STARTED**

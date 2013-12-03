@@ -27,6 +27,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "web3" do |web3|
     web3.vm.network :private_network, ip: "192.168.250.14"
   end 
+
+  config.vm.define "mn1" do |mn1|
+    mn1.vm.network :private_network, ip: "192.168.250.15"
  
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "demo-site.yml"
