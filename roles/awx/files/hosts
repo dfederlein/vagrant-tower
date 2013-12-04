@@ -16,7 +16,3 @@ webservers
 dbservers
 lbservers
 monitoring
-
-[jboss-servers:children]
-webservers
-lbservers
