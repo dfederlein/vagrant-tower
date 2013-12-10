@@ -1,3 +1,6 @@
+[local]
+localhost
+
 [webservers]
 web1 ansible_ssh_host=192.168.250.11
 web2 ansible_ssh_host=192.168.250.12
