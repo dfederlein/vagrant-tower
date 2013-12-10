@@ -95,9 +95,9 @@ To use the ansible CLI on the awx host:
 vagrant ssh awx
 ```
 
-Located in /home/vagrant/ansible is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook (though the included version is modified somewhat.)  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
+Located in /home/vagrant/projects is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook (though the included version is modified somewhat.)  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
 ```
-cd /home/vagrant/ansible/lamp_haproxy/
+cd /home/vagrant/projects/lamp_haproxy/
 ansible-playbook site.yml
 ```
 
@@ -114,4 +114,8 @@ Further material to get you started in ansible CLI can be found here:  http://ww
 
 - Agnosticity between CentOS and Ubuntu LTS
 - Pre-populate AWX with org/team/user/credential/inventory/playbook information to match CLI env inventory and playbook.
+<<<<<<< HEAD
 - Re-factor the lamp_haproxy example from ansible-examples for this using proper templating and correct config files (this is currently messy and changed.)
+=======
+- Add AWS scripts to demostrate hybrid launches and orchestration
+>>>>>>> be1f66faffecd050a9bcb6402336d2038fd912a5
