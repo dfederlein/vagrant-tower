@@ -33,14 +33,8 @@
 - name: move example playbook
   copy: src=lamp_haproxy.zip dest={{playbookdir}}
 
-- name: move another example playbook
-  copy: src=jboss.zip dest={{playbookdir}}
-
 - name: extract example playbook
   command: chdir={{playbookdir}} creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
-
-- name: extract another example playbook
-  command: chdir={{playbookdir}} creates={{playbookdir}}/jboss unzip jboss.zip
 
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
