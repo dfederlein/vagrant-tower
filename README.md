@@ -114,8 +114,5 @@ Further material to get you started in ansible CLI can be found here:  http://ww
 
 - Agnosticity between CentOS and Ubuntu LTS
 - Pre-populate AWX with org/team/user/credential/inventory/playbook information to match CLI env inventory and playbook.
-<<<<<<< HEAD
 - Re-factor the lamp_haproxy example from ansible-examples for this using proper templating and correct config files (this is currently messy and changed.)
-=======
 - Add AWS scripts to demostrate hybrid launches and orchestration
->>>>>>> be1f66faffecd050a9bcb6402336d2038fd912a5
