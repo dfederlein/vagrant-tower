@@ -113,5 +113,6 @@ Further material to get you started in ansible CLI can be found here:  http://ww
 **TO-DO**
 
 - Agnosticity between CentOS and Ubuntu LTS
+- assume non-friendly vagrant box (ie: not ours) and setup box accordingly in initial launch plays.
 - Pre-populate AWX with org/team/user/credential/inventory/playbook information to match CLI env inventory and playbook.
 - Add AWS scripts to demostrate hybrid launches and orchestration
