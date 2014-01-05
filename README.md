@@ -18,43 +18,29 @@ To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and htt
 
 **Note:** The demo requires an internet connection on your host machine both to set itself up and to deploy the included lamp_haproxy playbook. 
 
-**INSTRUCTIONS:**
+Demo Instructions
+-----------------
 
-This demo kit requires either a CentOS 6 or RHEL 6 vagrant box.  To use your own, add box name and url accordingly to the vagrant file. You can build your own, given the image is built to the vagrant instructions (and includes VirtualBox additions), or you can pull from http://www.vagrantbox.es/ 
+This demo kit requires either a CentOS 6 or RHEL 6 vagrant box. It is suggested to use the included vagrant box but you are able to create your own. To use your own you will need to add the box name and the url to the vagrant file. You can build your own vagrant box given that the image is built to the according to the vagrant instructions making sure that it contains the VirtualBox additions. Using an appropriate vagrant box from http://www.vagrantbox.es/ should also work. 
 
-I would suggest that the included Vagrantbox be used, however using another should work fine (I haven't tested this with other CentOS Vagrant boxes yet.)
+Preparing The Demo
+------------------
+
+### Cloning ###
 
 To clone this demo to your local machine, execute the following command:
 ```
 git clone https://github.com/dfederlein/vagrant-awx.git
 ```
 
-First, set the networking configuration options you want in the Vagrantfile.  If you only intend to test this on your personal desktop or laptop, leave "private_network" in place.  If you want to demonstrate this for others on your local LAN, use "public_network" and set your IP addresses according to your local LAN subnet.  For example:
+### Networking ###
 
-Public (bridged NIC) IP:
-```
-  config.vm.define "awx" do |awx|
-    awx.vm.network :public_network, ip: "XXX.XXX.XXX.XXX"
-  end
-```
-Private (NAT'ed NIC) IP:
-```
-  config.vm.define "awx" do |awx|
-    awx.vm.network :private_network, ip: "XXX.XXX.XXX.XXX"
-  end
-```
-Or configure as needed per Vagrant docs.
+When preparing a demo you need to make a decision if you would like to make the systems availible to your public network or restrict them to the private subnet. Out of the box the demo is configured to run in a private network and you will just want to make sure that your Ansible hosts file is configured properly. If you would like to share the systems on a public network in addition to changing the Ansible hosts file you will need to update the provided Vagrantfile to reflect the proper IP information. If there is a reason that you need to change the IPs in a private network configuration you will need to modify the Ansible hosts file as well as the Vagrant file.
 
-Modify these IP addresses to suit your needs in the Vagrantfile and in roles/awx/files/ansible.cfg to match Vagrantfile entries.
+#### Ansible Hosts File ####
 
-Then:
-```
-vagrant up
-```
+The demo provides an Ansible hosts file under roles/awx/files/hosts which should look like the below snippet. If you need to change the IPs for any reason you must edit this file so that the demo will function properly.
 
-Virtual Hosts:
-
-Once up, your demo boxes will be as follows:
 ```
 [awx]
 awx ansible_ssh_host=192.168.250.10
@@ -73,7 +59,33 @@ web3 ansible_ssh_host=192.168.250.14
 mn1 ansible_ssh_host=192.168.250.15
 ```
 
-**GETTING STARTED**
+#### Vagrantfile ####
+
+The Vagrantfile allows us to make the networking configuration changes that will be used to create the demo VMs. If you are going to continue using private networking there are no changes required unless you need to change the IPs. If you are going to use a public network use the example below for each server (awx, web1, web2, web3, db1, mn1). Remember that it is important that the provided Vagrantfile must be consistant with the Ansible hosts file.
+
+Public (bridged NIC) IP:
+```
+  config.vm.define "awx" do |awx|
+    awx.vm.network :public_network, ip: "XXX.XXX.XXX.XXX"
+  end
+```
+Private (NAT'ed NIC) IP:
+```
+  config.vm.define "awx" do |awx|
+    awx.vm.network :private_network, ip: "XXX.XXX.XXX.XXX"
+  end
+```
+If you have any problems you should consult the Vagrant documentation.
+
+#### Instantiation ####
+
+Execute the command below to create and configure the VMs for the demo.
+```
+vagrant up
+```
+
+Running the Demo
+----------------
 
 Now you can log into AWX at https://192.168.250.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansibleworks.com/releases/awx/docs/awx_user_guide-latest.pdf
 
