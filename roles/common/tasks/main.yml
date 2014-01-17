@@ -1,6 +1,9 @@
 ---
 # This role contains common plays that will run on all nodes.
 
+- name: Raw bootstrap for python
+  raw: yum -y install python libselinux-python
+
 - name: Create the repository for EPEL
   copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
 

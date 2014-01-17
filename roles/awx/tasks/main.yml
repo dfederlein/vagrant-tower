@@ -4,7 +4,6 @@
   with_items:
   - git
   - supervisor
-  - libselinux-python
   - python-pip
   - python-jinja2
   - python-devel

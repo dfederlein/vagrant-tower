@@ -10,7 +10,7 @@ Host Machine Requirements:
 - VirtualBox (version 4.3 or later with Oracle VM VirtualBox Extension Pack installed.)
 - Git 
 - An Internet connection to create the demo environment.
-- The ability to run 5 VM's on the host you are using this on. (included CentOS vagrantbox uses 10g root filesystem and 1g ram max, is thin provisioned.)
+- The ability to run 5 VM's on the host you are using this on. 
 
 Ansible install instructions here: http://www.ansibleworks.com/docs/intro_installation.html
 
@@ -21,7 +21,7 @@ To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and htt
 Demo Instructions
 -----------------
 
-This demo kit requires either a CentOS 6 or RHEL 6 vagrant box. It is suggested to use the included vagrant box but you are able to create your own. To use your own you will need to add the box name and the url to the vagrant file. You can build your own vagrant box given that the image is built to the according to the vagrant instructions making sure that it contains the VirtualBox additions. Using an appropriate vagrant box from http://www.vagrantbox.es/ should also work. 
+This demo kit requires either a CentOS 6 or RHEL 6 vagrant box. You will need to add the box name and the url to the vagrant file. You can build your own vagrant box given that the image is built to the according to the vagrant instructions making sure that it contains the VirtualBox additions. Using an appropriate vagrant box from http://www.vagrantbox.es/ should also work. Please note:  Many of the vagrant boxes located at vagrantbox.es do not have the requisite python packages installed.  For this reason, I have included the raw commands to install them in the common role.
 
 Preparing The Demo
 ------------------
