@@ -5,8 +5,8 @@ This is a AWX demo environment in a box using Vagrant and VirtualBox.
 
 Host Machine Requirements:
 
-- Ansible (version 1.3.X or later)
-- Vagrant (version 1.3.3 or later)
+- Ansible (version 1.4 or later)
+- Vagrant (version 1.4 or later)
 - VirtualBox (version 4.3 or later with Oracle VM VirtualBox Extension Pack installed.)
 - Git 
 - An Internet connection to create the demo environment.
