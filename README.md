@@ -43,20 +43,20 @@ The demo provides an Ansible hosts file under roles/awx/files/hosts which should
 
 ```
 [awx]
-awx ansible_ssh_host=192.168.250.10
+awx ansible_ssh_host=192.168.251.10
 
 [webservers]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
+web1 ansible_ssh_host=192.168.251.11
+web2 ansible_ssh_host=192.168.251.12
 
 [dbservers]
-db1 ansible_ssh_host=192.168.250.13
+db1 ansible_ssh_host=192.168.251.13
 
 [lbservers]
-web3 ansible_ssh_host=192.168.250.14
+web3 ansible_ssh_host=192.168.251.14
 
 [monitoring]
-mn1 ansible_ssh_host=192.168.250.15
+mn1 ansible_ssh_host=192.168.251.15
 ```
 
 #### Vagrantfile ####
@@ -87,7 +87,7 @@ vagrant up
 Running the Demo
 ----------------
 
-Now you can log into AWX at https://192.168.250.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansibleworks.com/releases/awx/docs/awx_user_guide-latest.pdf
+Now you can log into AWX at https://192.168.251.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansibleworks.com/releases/awx/docs/awx_user_guide-latest.pdf
 
 The user to log in as is:
 
