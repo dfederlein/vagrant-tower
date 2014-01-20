@@ -21,7 +21,9 @@ To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and htt
 Demo Instructions
 -----------------
 
-This demo kit requires either a CentOS 6 or RHEL 6 vagrant box. You will need to add the box name and the url to the vagrant file. You can build your own vagrant box given that the image is built to the according to the vagrant instructions making sure that it contains the VirtualBox additions. Using an appropriate vagrant box from http://www.vagrantbox.es/ should also work. Please note:  Many of the vagrant boxes located at vagrantbox.es do not have the requisite python packages installed.  For this reason, I have included the raw commands to install them in the common role.
+This demo kit requires either a CentOS 6 or RHEL 6 vagrant box. You will need to add the box name and the url to the vagrant file. You can build your own vagrant box as long as that image is built according to the vagrant instructions and it includes the VirtualBox additions. Using an appropriate vagrant box from http://www.vagrantbox.es/ should also work. Please note:  Many of the vagrant boxes located at vagrantbox.es do not have the requisite python packages installed.  For this reason, I have included the raw commands to install them in the common role.
+
+Currently, I am testing against this vagrantbox: centos65-x86_64-20131205 URL: https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
 
 Preparing The Demo
 ------------------
