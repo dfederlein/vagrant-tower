@@ -7,7 +7,7 @@ Host Machine Requirements:
 
 - Ansible (version 1.4 or later)
 - Vagrant (version 1.4 or later)
-- VirtualBox (version 4.3 or later with Oracle VM VirtualBox Extension Pack installed.)
+- VirtualBox (version 4.3 or later)
 - Git 
 - An Internet connection to create the demo environment.
 - The ability to run 5 VM's on the host you are using this on. 
