@@ -38,6 +38,12 @@
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
 
+- name: remove that macosx directory
+  shell: rm -fr {{playbookdir}}/__MACOSX
+
+- name: remove zip file
+  shell: rm -fr {{playbookdir}}/lamp_haproxy.zip
+
 - name: populate etc ansible hosts
   copy: src=hosts dest={{hostfile}}
 
