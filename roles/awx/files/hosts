@@ -1,15 +1,15 @@
 [webservers]
-web1 ansible_ssh_host=192.168.251.11
-web2 ansible_ssh_host=192.168.251.12
+web1 ansible_ssh_host=192.168.254.11
+web2 ansible_ssh_host=192.168.254.12
 
 [dbservers]
-db1 ansible_ssh_host=192.168.251.13
+db1 ansible_ssh_host=192.168.254.13
 
 [lbservers]
-web3 ansible_ssh_host=192.168.251.14
+web3 ansible_ssh_host=192.168.254.14
 
 [monitoring]
-mn1 ansible_ssh_host=192.168.251.15
+mn1 ansible_ssh_host=192.168.254.15
 
 [demo:children]
 webservers
