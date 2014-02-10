@@ -14,14 +14,14 @@
   sudo: yes
 
 - name: download AWX setup
-  get_url: url=http://www.ansibleworks.com/releases/awx/setup/awx-setup-{{awx_version}}.tar.gz
+  get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{awx_version}}.tar.gz
            dest=/opt/ force=yes
 
 - name: extract AWX
-  command: chdir=/opt/ creates=/opt/awx-setup-{{awx_version}} tar zxvf awx-setup-{{awx_version}}.tar.gz
+  command: chdir=/opt/ creates=/opt/ansible-tower-setup-{{awx_version}} tar zxvf ansible-tower-setup-{{awx_version}}.tar.gz
 
 - name: run the AWX installer
-  command: chdir=/opt/awx-setup-{{awx_version}} creates=/etc/awx/settings.py ./setup.sh
+  command: chdir=/opt/ansible-tower-setup-{{awx_version}} creates=/etc/awx/settings.py ./setup.sh
 
 - name: set up private keys for demo boxes
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
