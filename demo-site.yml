@@ -6,7 +6,7 @@
   - common
 
 - name: Deploy AWX
-  hosts: awx
+  hosts: tower
 
   roles:
-  - awx
+  - tower
