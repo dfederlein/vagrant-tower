@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box"
 
   config.vm.define "tower" do |tower|
-    awx.vm.network :private_network, ip: "192.168.254.10"
+    tower.vm.network :private_network, ip: "192.168.254.10"
   end
 
   config.vm.define "web1" do |web1|
