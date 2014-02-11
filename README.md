@@ -115,7 +115,7 @@ cd /home/vagrant/projects/lamp_haproxy/
 ansible-playbook site.yml
 ```
 
-Further material to get you started in ansible CLI can be found here:  http://www.ansibleworks.com/docs/
+Further material to get you started in ansible CLI can be found in this PDF: http://releases.ansible.com/ansible-tower/docs/tower_user_guide-latest.pdf
 
 **TROUBLESHOOTING**
 
