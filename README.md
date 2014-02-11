@@ -1,7 +1,7 @@
-AWX Demo-In-A-Box
-=================
+Ansible Tower Demo-In-A-Box
+===========================
 
-This is a AWX demo environment in a box using Vagrant and VirtualBox.
+This is a Tower demo environment in a box using Vagrant and VirtualBox.
 
 Host Machine Requirements:
 
@@ -12,7 +12,7 @@ Host Machine Requirements:
 - An Internet connection to create the demo environment.
 - The ability to run 5 VM's on the host you are using this on. 
 
-Ansible install instructions here: http://www.ansibleworks.com/docs/intro_installation.html
+Ansible install instructions here: http://docs.ansible.com/intro_installation.html
 
 To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and https://www.virtualbox.org/wiki/Downloads
 
@@ -32,7 +32,7 @@ Preparing The Demo
 
 To clone this demo to your local machine, execute the following command:
 ```
-git clone https://github.com/dfederlein/vagrant-awx.git
+git clone https://github.com/dfederlein/vagrant-tower.git
 ```
 
 ### Networking ###
@@ -44,8 +44,8 @@ When preparing a demo you need to make a decision if you would like to make the 
 The demo provides an Ansible hosts file under roles/awx/files/hosts which should look like the below snippet. If you need to change the IPs for any reason you must edit this file so that the demo will function properly.
 
 ```
-[awx]
-awx ansible_ssh_host=192.168.251.10
+[Tower]
+tower ansible_ssh_host=192.168.251.10
 
 [webservers]
 web1 ansible_ssh_host=192.168.251.11
@@ -73,8 +73,8 @@ Public (bridged NIC) IP:
 ```
 Private (NAT'ed NIC) IP:
 ```
-  config.vm.define "awx" do |awx|
-    awx.vm.network :private_network, ip: "XXX.XXX.XXX.XXX"
+  config.vm.define "tower" do |tower|
+    tower.vm.network :private_network, ip: "XXX.XXX.XXX.XXX"
   end
 ```
 If you have any problems you should consult the Vagrant documentation.
@@ -89,7 +89,7 @@ vagrant up
 Running the Demo
 ----------------
 
-Now you can log into AWX at https://192.168.251.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansibleworks.com/releases/awx/docs/awx_user_guide-latest.pdf
+Now you can log into AWX at https://192.168.251.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansible.com/tower  (User guide can be downloaded from that webpage.)
 
 The user to log in as is:
 
@@ -99,14 +99,14 @@ Password: password
 Once you have logged in, you can create your Organization, Users, Teams, Inventories and Credentials.  When creating Projects, you will be able to select the example lamp_haproxy playbook project folder (initial deploy of demo places that for you.)  To import the provided host inventory from CLI to AWX, log into the awx host, su to root and run the following commands:
 
 ```
-vagrant ssh awx
+vagrant ssh tower
 sudo su -
 awx-manage inventory_import --source=/etc/ansible/hosts --inventory-name=(your created inventory name)
 ```
 
 To use the ansible CLI on the awx host:
 ```
-vagrant ssh awx
+vagrant ssh tower
 ```
 
 Located in /home/vagrant/projects is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook (though the included version is modified somewhat.)  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
