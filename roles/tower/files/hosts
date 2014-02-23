@@ -6,7 +6,7 @@ web2 ansible_ssh_host=192.168.254.12
 db1 ansible_ssh_host=192.168.254.13
 
 [lbservers]
-web3 ansible_ssh_host=192.168.254.14
+lb1 ansible_ssh_host=192.168.254.14
 
 [monitoring]
 mn1 ansible_ssh_host=192.168.254.15
