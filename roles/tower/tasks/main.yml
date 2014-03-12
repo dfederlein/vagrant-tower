@@ -55,3 +55,6 @@
 
 - name: rsync playbook to awx projects folder
   command: rsync -a {{playbookdir}}/ /var/lib/awx/projects/
+
+- name: fix AWX permissions
+  shell: sudo chown -R awx.awx /var/lib/awx
