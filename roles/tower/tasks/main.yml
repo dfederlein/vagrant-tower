@@ -15,7 +15,7 @@
 
 - name: download AWX setup
   get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz
-           dest=/opt/ force=yes
+    dest=/opt/ force=yes
 
 - name: extract AWX
   command: chdir=/opt/ creates=/opt/ansible-tower-setup-{{tower_version}} tar zxvf ansible-tower-setup-{{tower_version}}.tar.gz
@@ -40,3 +40,9 @@
 
 - name: fix AWX permissions
   shell: sudo chown -R awx.awx {{ playbookdir }}
+
+- name: put lamp_haproxy example in user playbook dir
+  shell: rsync -a {{ playbookdir }}/lamp_haproxy {{ userplaybookdir }}
+
+- name: fix vagrant home permissions
+  shell: sudo chown -R vagrant.vagrant /home/vagrant

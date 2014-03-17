@@ -109,9 +109,11 @@ To use the ansible CLI on the awx host:
 vagrant ssh tower
 ```
 
-Located in /home/vagrant/projects is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook (though the included version is modified somewhat.)  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
+Located in /home/vagrant/ is a playbook taken from https://github.com/ansible/ansible-examples called "lamp_haproxy."  This demo is designed to run this playbook (though the included version is modified somewhat.)  From the ansible CLI you can modify then execute this playbook as you see fit to learn more about ansible CLI.
+
+Additionally, all playbooks from the ansible-examples repo ( https://github.com/ansible/ansible-examples ) have been added to /var/lib/awx/projects/ (NOTE: These were adapted to work with this vagrant demo.  They are taken from my fork here: https://github.com/dfederlein/ansible-examples )
 ```
-cd /home/vagrant/projects/lamp_haproxy/
+cd /home/vagrant/lamp_haproxy/
 ansible-playbook site.yml
 ```
 
