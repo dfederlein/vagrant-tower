@@ -24,7 +24,7 @@
   command: chdir=/opt/ansible-tower-setup-{{tower_version}} creates=/etc/awx/settings.py ./setup.sh
 
 - name: set up private keys for demo boxes
-  copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
+  copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600 owner=vagrant group=vagrant
 
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory

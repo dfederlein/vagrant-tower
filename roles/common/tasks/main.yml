@@ -18,7 +18,4 @@
 
 - name: set up authorized keys for demo boxes
   authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
-    manage_dir=yes state=present
-
-- name: fix permissions
-  shell: sudo chown -R vagrant.vagrant /home/vagrant
+    manage_dir=yes state=present owner=vagrant group=vagrant
