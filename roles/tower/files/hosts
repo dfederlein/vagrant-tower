@@ -1,4 +1,4 @@
-# For lamp_haproxy:
+# For lamp_haproxy/lamp_simple:
 
 [webservers]
 web1 ansible_ssh_host=192.168.250.11
@@ -50,14 +50,6 @@ mn1 ansible_ssh_host=192.168.250.15
 
 [jboss-servers]
 web1 ansible_ssh_host=192.168.250.11
-
-# For lamp_simple:
-
-[webservers]
-web1 ansible_ssh_host=192.168.250.11
-
-[dbservers]
-db1 ansible_ssh_host=192.168.250.13
 
 # For mongodb:
 
