@@ -42,7 +42,7 @@
   shell: sudo chown -R awx.awx {{ playbookdir }}
 
 - name: put lamp_haproxy example in user playbook dir
-  shell: rsync -a {{ playbookdir }}/lamp_haproxy {{ userplaybookdir }}
+  shell: rsync -a {{ playbookdir }}/ {{ userplaybookdir }}
 
 - name: fix vagrant home permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
