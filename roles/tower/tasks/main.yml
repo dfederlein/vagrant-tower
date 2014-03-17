@@ -36,7 +36,7 @@
   copy: src=ansible.cfg dest=/{{configdir}}
 
 - name: git clone playbook examples to awx projects folder
-  command: rsync -a {{playbookdir}}/ /var/lib/awx/projects/
+  git: repo={{ playbookrepo }} dest={{ playbookdir }}
 
 - name: fix AWX permissions
-  shell: sudo chown -R awx.awx /var/lib/awx
+  shell: sudo chown -R awx.awx {{ playbookdir }}

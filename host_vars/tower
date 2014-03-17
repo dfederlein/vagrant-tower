@@ -1,6 +1,7 @@
 ---
 tower_version: 1.4.5
-playbookdir: /home/vagrant/projects
+playbookdir: /var/lib/awx/projects
 keydir: /home/vagrant/.ssh
 hostfile: /etc/ansible/hosts
 configdir: /etc/ansible
+playbookrepo: https://github.com/ansible/ansible-examples.git 
