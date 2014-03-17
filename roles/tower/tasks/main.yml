@@ -26,23 +26,8 @@
 - name: set up private keys for demo boxes
   copy: src=id_rsa dest={{keydir}}/id_rsa mode=0600
 
-- name: create playbook dir for user
-  action: file dest={{playbookdir}} state=directory
-
-- name: move example playbook
-  copy: src=lamp_haproxy.zip dest={{playbookdir}}
-
-- name: extract example playbook
-  command: chdir={{playbookdir}} creates={{playbookdir}}/lamp_haproxy unzip lamp_haproxy.zip
-
 - name: create etc ansible directory
   action: file dest={{configdir}} state=directory
-
-- name: remove that macosx directory
-  shell: rm -fr {{playbookdir}}/__MACOSX
-
-- name: remove zip file
-  shell: rm -fr {{playbookdir}}/lamp_haproxy.zip
 
 - name: populate etc ansible hosts
   copy: src=hosts dest={{hostfile}}
@@ -50,10 +35,7 @@
 - name: populate etc ansible config
   copy: src=ansible.cfg dest=/{{configdir}}
 
-- name: fix permissions
-  shell: sudo chown -R vagrant.vagrant /home/vagrant
-
-- name: rsync playbook to awx projects folder
+- name: git clone playbook examples to awx projects folder
   command: rsync -a {{playbookdir}}/ /var/lib/awx/projects/
 
 - name: fix AWX permissions
