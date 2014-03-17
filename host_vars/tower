@@ -4,5 +4,5 @@ playbookdir: /var/lib/awx/projects
 keydir: /home/vagrant/.ssh
 hostfile: /etc/ansible/hosts
 configdir: /etc/ansible
-playbookrepo: https://github.com/ansible/ansible-examples.git 
+playbookrepo: https://github.com/dfederlein/ansible-examples.git 
 userplaybookdir: /home/vagrant
