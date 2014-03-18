@@ -67,8 +67,8 @@ The Vagrantfile allows us to make the networking configuration changes that will
 
 Public (bridged NIC) IP:
 ```
-  config.vm.define "awx" do |awx|
-    awx.vm.network :public_network, ip: "XXX.XXX.XXX.XXX"
+  config.vm.define "tower" do |tower|
+    tower.vm.network :public_network, ip: "XXX.XXX.XXX.XXX"
   end
 ```
 Private (NAT'ed NIC) IP:
