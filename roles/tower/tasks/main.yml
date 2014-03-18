@@ -38,11 +38,14 @@
 - name: git clone playbook examples to awx projects folder
   git: repo={{ playbookrepo }} dest={{ playbookdir }}
 
-- name: fix AWX permissions
-  shell: sudo chown -R awx.awx {{ playbookdir }}
+- name: Vagrant user demo playbook directory
+  file: path=/home/vagrant/playbooks owner=vagrant group=vagrant mode=755 state=directory
 
 - name: put lamp_haproxy example in user playbook dir
-  shell: rsync -a {{ playbookdir }}/ {{ userplaybookdir }}/
+  git: repo={{ playbookrepo }} dest={{ userplaybookdir }}
 
 - name: fix vagrant home permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
+
+- name: fix AWX permissions
+  shell: sudo chown -R awx.awx {{ playbookdir }}

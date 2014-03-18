@@ -109,7 +109,7 @@ To use the ansible CLI on the awx host:
 vagrant ssh tower
 ```
 
-Located in /home/vagrant/ are playbooks taken from https://github.com/ansible/ansible-examples.  This demo is designed to run these playbooks (though the included playbooks are modified somewhat from the canonical ansible repo.)  From the ansible CLI you can modify then execute these playbooks as you see fit to learn more about ansible CLI.
+Located in /home/vagrant/playbooks are playbooks taken from https://github.com/ansible/ansible-examples.  This demo is designed to run these playbooks (though the included playbooks are modified somewhat from the canonical ansible repo.)  From the ansible CLI you can modify then execute these playbooks as you see fit to learn more about ansible CLI.
 
 Additionally, all playbooks from the ansible-examples repo ( https://github.com/ansible/ansible-examples ) have been added to /var/lib/awx/projects/ so you can use them when creating projects and job templates in Tower. 
 
@@ -117,7 +117,7 @@ Additionally, all playbooks from the ansible-examples repo ( https://github.com/
 
 For example, you can deploy lamp_haproxy as a stack of 5 machines (1 load balancer, 2 web servers, 1 DB server, 1 nagios server):
 ```
-cd /home/vagrant/lamp_haproxy/
+cd /home/vagrant/playbooks/lamp_haproxy/
 ansible-playbook site.yml
 ```
 
@@ -127,7 +127,7 @@ Further material to get you started in ansible CLI can be found in this PDF: htt
 
 - if for some reason the initial 'vagrant up' command fails, make sure you 'vagrant destroy' all machines before re-running the playbook or you may end up with missed plays.
 - if you have changed the IP addresses in the Vagrantfile from above, you may need to adjust group variables in the example lamp_haproxy playbook to match your changes.  For example, in group_vars/lbservers you may need to change iface: eth1 to eth0.  The same would be true for group_vars/webservers.
-- You will also need to change the file roles/awx/files/hosts to match IP addresses if you have changed the Vagrantfile provided to your own subnet.
+- You will also need to change the file roles/tower/files/hosts to match IP addresses if you have changed the Vagrantfile provided to your own subnet.
 - Using the static IPs above with VirtualBox means each machine will have two interfaces on two subnets.  One will be the default NAT'ed subnet for VirtualBox, the other the subnet you've specified.  This is true whether using private or public settings.  Adjust wanted communication paths in your playbooks accordingly, all subnets are functional on these hosts.
 
 **TO-DO**

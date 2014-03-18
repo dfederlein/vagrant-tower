@@ -5,4 +5,4 @@ keydir: /home/vagrant/.ssh
 hostfile: /etc/ansible/hosts
 configdir: /etc/ansible
 playbookrepo: https://github.com/dfederlein/ansible-examples.git 
-userplaybookdir: /home/vagrant
+userplaybookdir: /home/vagrant/playbooks
