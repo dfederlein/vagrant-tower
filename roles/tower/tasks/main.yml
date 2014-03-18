@@ -13,14 +13,14 @@
   action: command pip install ansible
   sudo: yes
 
-- name: download AWX setup
+- name: download Tower setup
   get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz
     dest=/opt/ force=yes
 
-- name: extract AWX
+- name: extract Tower
   command: chdir=/opt/ creates=/opt/ansible-tower-setup-{{tower_version}} tar zxvf ansible-tower-setup-{{tower_version}}.tar.gz
 
-- name: run the AWX installer
+- name: run the Tower installer
   command: chdir=/opt/ansible-tower-setup-{{tower_version}} creates=/etc/awx/settings.py ./setup.sh
 
 - name: set up private keys for demo boxes
