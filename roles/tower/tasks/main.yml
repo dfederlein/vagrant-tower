@@ -47,5 +47,5 @@
 - name: fix vagrant home permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
 
-- name: fix AWX permissions
+- name: fix Tower permissions
   shell: sudo chown -R awx.awx {{ playbookdir }}
