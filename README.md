@@ -37,7 +37,7 @@ git clone https://github.com/dfederlein/vagrant-tower.git
 
 ### Networking ###
 
-When preparing a demo you need to make a decision if you would like to make the systems availible to your public network or restrict them to the private subnet. Out of the box the demo is configured to run in a private network and you will just want to make sure that your Ansible hosts file is configured properly. If you would like to share the systems on a public network in addition to changing the Ansible hosts file you will need to update the provided Vagrantfile to reflect the proper IP information. If there is a reason that you need to change the IPs in a private network configuration you will need to modify the Ansible hosts file as well as the Vagrant file.
+When preparing a demo you need to make a decision if you would like to make the systems availible to your public network or restrict them to the private subnet. Out of the box the demo is configured to run in a public/bridged network (the same as your host's LAN) and you will just want to make sure that your Ansible hosts file is configured properly. If you would like to NAT the hosts on a VirtualBox private network in addition to changing the Ansible hosts file you will need to update the provided Vagrantfile to reflect the proper IP information.
 
 #### Ansible Hosts File ####
 
