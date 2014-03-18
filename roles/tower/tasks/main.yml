@@ -36,13 +36,13 @@
   copy: src=ansible.cfg dest=/{{configdir}}
 
 - name: git clone playbook examples to awx projects folder
-  git: repo={{ playbookrepo }} dest={{ playbookdir }}
+  git: repo={{ playbookrepo }} dest={{ playbookdir }} accept_hostkey=yes
 
 - name: Vagrant user demo playbook directory
   file: path=/home/vagrant/playbooks owner=vagrant group=vagrant mode=755 state=directory
 
 - name: put lamp_haproxy example in user playbook dir
-  git: repo={{ playbookrepo }} dest={{ userplaybookdir }}
+  git: repo={{ playbookrepo }} dest={{ userplaybookdir }} accept_hostkey=yes
 
 - name: fix vagrant home permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
