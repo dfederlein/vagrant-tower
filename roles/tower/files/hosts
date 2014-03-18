@@ -1,17 +1,22 @@
+# For play-webapp/tomcat-standalone/wordpress/jboss-standalone:
+
+[standalone]
+vm1 ansible_ssh_host=192.168.250.11
+
 # For lamp_haproxy/lamp_simple:
 
 [webservers]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
 
 [dbservers]
-db1 ansible_ssh_host=192.168.250.13
+vm3 ansible_ssh_host=192.168.250.13
 
 [lbservers]
-lb1 ansible_ssh_host=192.168.250.14
+vm4 ansible_ssh_host=192.168.250.14
 
 [monitoring]
-mn1 ansible_ssh_host=192.168.250.15
+vm5 ansible_ssh_host=192.168.250.15
 
 # For hadoop:
 
@@ -22,103 +27,88 @@ qjournal_servers
 zookeeper_servers
 
 [hadoop_master_primary]
-web1 ansible_ssh_host=192.168.250.11
+vm1 ansible_ssh_host=192.168.250.11
 
 [hadoop_master_secondary]
-web2 ansible_ssh_host=192.168.250.12
+vm2 ansible_ssh_host=192.168.250.12
 
 [hadoop_masters:children]
 hadoop_master_primary
 hadoop_master_secondary
 
 [hadoop_slaves]
-db1 ansible_ssh_host=192.168.250.13
-lb1 ansible_ssh_host=192.168.250.14
-mn1 ansible_ssh_host=192.168.250.15
+vm3 ansible_ssh_host=192.168.250.13
+vm4 ansible_ssh_host=192.168.250.14
+vm5 ansible_ssh_host=192.168.250.15
 
 [qjournal_servers]
-db1 ansible_ssh_host=192.168.250.13
-lb1 ansible_ssh_host=192.168.250.14
-mn1 ansible_ssh_host=192.168.250.15
+vm3 ansible_ssh_host=192.168.250.13
+vm4 ansible_ssh_host=192.168.250.14
+vm5 ansible_ssh_host=192.168.250.15
 
 [zookeeper_servers]
-db1 ansible_ssh_host=192.168.250.13
-lb1 ansible_ssh_host=192.168.250.14
-mn1 ansible_ssh_host=192.168.250.15
-
-# For jboss-standalone
-
-[jboss-servers]
-web1 ansible_ssh_host=192.168.250.11
+vm3 ansible_ssh_host=192.168.250.13
+vm4 ansible_ssh_host=192.168.250.14
+vm5 ansible_ssh_host=192.168.250.15
 
 # For mongodb:
 
 [mongo_servers]
-web1 mongod_port=2700 ansible_ssh_host=192.168.250.11
-web2 mongod_port=2701 ansible_ssh_host=192.168.250.12
-db1 mongod_port=2702 ansible_ssh_host=192.168.250.13
-lb1 mongod_port=2703 ansible_ssh_host=192.168.250.14
+vm1 mongod_port=2700 ansible_ssh_host=192.168.250.11
+vm2 mongod_port=2701 ansible_ssh_host=192.168.250.12
+vm3 mongod_port=2702 ansible_ssh_host=192.168.250.13
+vm4 mongod_port=2703 ansible_ssh_host=192.168.250.14
 
 [replication_servers]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
-db1 ansible_ssh_host=192.168.250.13
-lb1 ansible_ssh_host=192.168.250.14
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
+vm3 ansible_ssh_host=192.168.250.13
+vm4 ansible_ssh_host=192.168.250.14
 
 [mongoc_servers]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
-db1 ansible_ssh_host=192.168.250.13
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
+vm3 ansible_ssh_host=192.168.250.13
 
 [mongos_servers]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
-
-# For play-webapp:
-
-[webapp_server]
-web1 ansible_ssh_host=192.168.250.11
-
-# For tomcat-standalone:
-
-[tomcat-servers]
-web1 ansible_ssh_host=192.168.250.11
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
 
 # For wordpress:
 
 [wordpress-server]
-web1 ansible_ssh_host=192.168.250.11
+vm1 ansible_ssh_host=192.168.250.11
 
 # For riak:
 
 [riak_cluster]
-web1 node_type=primary ansible_ssh_host=192.168.250.11
-web2 node_type=middle ansible_ssh_host=192.168.250.12
-db1 node_type=last ansible_ssh_host=192.168.250.13
+vm1 node_type=primary ansible_ssh_host=192.168.250.11
+vm2 node_type=middle ansible_ssh_host=192.168.250.12
+vm3 node_type=last ansible_ssh_host=192.168.250.13
 
 # for openshift:
 
 [dns]
-web1 ansible_ssh_host=192.168.250.11
+vm1 ansible_ssh_host=192.168.250.11
 
 [mongo_servers]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
-db1 ansible_ssh_host=192.168.250.13
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
+vm3 ansible_ssh_host=192.168.250.13
 
 [mq]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
-db1 ansible_ssh_host=192.168.250.13
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
+vm3 ansible_ssh_host=192.168.250.13
 
 [broker]
-web1 ansible_ssh_host=192.168.250.11
-web2 ansible_ssh_host=192.168.250.12
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
 
 [nodes]
-lb1 ansible_ssh_host=192.168.250.14
-mn1 ansible_ssh_host=192.168.250.15
+vm4 ansible_ssh_host=192.168.250.14
+vm5 ansible_ssh_host=192.168.250.15
 
 [lvs]
-mn1 ansible_ssh_host=192.168.250.15
-db1 ansible_ssh_host=192.168.250.13
+vm5 ansible_ssh_host=192.168.250.15
+vm3 ansible_ssh_host=192.168.250.13

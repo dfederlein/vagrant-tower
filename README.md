@@ -48,22 +48,22 @@ The demo provides an Ansible hosts file under roles/awx/files/hosts which should
 tower ansible_ssh_host=192.168.251.10
 
 [webservers]
-web1 ansible_ssh_host=192.168.251.11
-web2 ansible_ssh_host=192.168.251.12
+vm1 ansible_ssh_host=192.168.251.11
+vm2 ansible_ssh_host=192.168.251.12
 
 [dbservers]
-db1 ansible_ssh_host=192.168.251.13
+vm3 ansible_ssh_host=192.168.251.13
 
 [lbservers]
 web3 ansible_ssh_host=192.168.251.14
 
 [monitoring]
-mn1 ansible_ssh_host=192.168.251.15
+vm5 ansible_ssh_host=192.168.251.15
 ```
 
 #### Vagrantfile ####
 
-The Vagrantfile allows us to make the networking configuration changes that will be used to create the demo VMs. If you are going to continue using private networking there are no changes required unless you need to change the IPs. If you are going to use a public network use the example below for each server (awx, web1, web2, web3, db1, mn1). Remember that it is important that the provided Vagrantfile must be consistant with the Ansible hosts file.
+The Vagrantfile allows us to make the networking configuration changes that will be used to create the demo VMs. If you are going to continue using private networking there are no changes required unless you need to change the IPs. If you are going to use a public network use the example below for each server (awx, vm1, vm2, web3, vm3, vm5). Remember that it is important that the provided Vagrantfile must be consistant with the Ansible hosts file.
 
 Public (bridged NIC) IP:
 ```
