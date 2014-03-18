@@ -55,7 +55,7 @@ vm2 ansible_ssh_host=192.168.251.12
 vm3 ansible_ssh_host=192.168.251.13
 
 [lbservers]
-web3 ansible_ssh_host=192.168.251.14
+vm4 ansible_ssh_host=192.168.251.14
 
 [monitoring]
 vm5 ansible_ssh_host=192.168.251.15
