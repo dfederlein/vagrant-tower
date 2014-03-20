@@ -7,4 +7,4 @@ configdir: /etc/ansible
 playbookrepo: https://github.com/dfederlein/ansible-examples.git 
 userplaybookdir: /home/vagrant/playbooks
 clirepository: https://github.com/ansible/awx-cli.git
-clibuilddir: /tmp
+clibuilddir: /tmp/awx-cli
