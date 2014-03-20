@@ -49,3 +49,9 @@
 
 - name: fix Tower permissions
   shell: sudo chown -R awx.awx {{ playbookdir }}
+
+- name: git clone tower cli
+  git: repo={{ clirepository }} dest={{ clibuilddir }}
+
+- name: install tower cli
+  shell: cd /tmp/awx-cli; make install
