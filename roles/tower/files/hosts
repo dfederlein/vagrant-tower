@@ -1,87 +1,12 @@
-[standalone]
-vm1 mongod_port=2700 node_type=primary ansible_ssh_host=192.168.250.11
+[tag_Name_webservers]
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
 
-[standalone2]
-vm2 mongod_port=2701 node_type=middle ansible_ssh_host=192.168.250.12
+[tag_Name_dbservers]
+vm3 ansible_ssh_host=192.168.250.13
 
-[dbservers]
-vm3 mongod_port=2702 node_type=last ansible_ssh_host=192.168.250.13
-
-[lbservers]
+[tag_Name_lbservers]
 vm4 ansible_ssh_host=192.168.250.14
 
-[monitoring]
+[tag_Name_monitoring]
 vm5 ansible_ssh_host=192.168.250.15
-
-[webservers:children]
-standalone
-standalone2
-
-[last2:children]
-lbservers
-monitoring
-
-[first3:children]
-standalone
-standalone2
-dbservers
-
-[last3:children]
-dbservers
-lbservers
-monitoring
-
-[hadoop_all:children]
-hadoop_masters
-hadoop_slaves
-qjournal_servers
-zookeeper_servers
-
-[hadoop_master_primary:children]
-standalone
-
-[hadoop_master_secondary:children]
-standalone2
-
-[hadoop_masters:children]
-hadoop_master_primary
-hadoop_master_secondary
-
-[hadoop_slaves:children]
-last3
-
-[qjournal_servers:children]
-last3
-
-[zookeeper_servers:children]
-last3
-
-[mongo_servers:children]
-first3
-
-[replication_servers:children]
-first3
-
-[mongoc_servers:children]
-first3
-
-[mongos_servers:children]
-first3
-
-[riak_cluster:children]
-first3
-
-[dns:children]
-standalone
-
-[mq:children]
-first3
-
-[broker:children]
-first3
-
-[nodes:children]
-last2
-
-[lvs:children]
-last2
