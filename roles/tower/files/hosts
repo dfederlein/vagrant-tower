@@ -1,11 +1,12 @@
-[tag_Name_webservers]
+[tag_Name_lbservers]
 vm1 ansible_ssh_host=192.168.250.11
-vm2 ansible_ssh_host=192.168.250.12
 
-[tag_Name_dbservers]
+
+[tag_Name_webservers]
+vm2 ansible_ssh_host=192.168.250.12
 vm3 ansible_ssh_host=192.168.250.13
 
-[tag_Name_lbservers]
+[tag_Name_dbservers]
 vm4 ansible_ssh_host=192.168.250.14
 
 [tag_Name_monitoring]
