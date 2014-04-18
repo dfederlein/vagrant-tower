@@ -9,6 +9,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box"
 
   config.vm.define "tower", primary: true do |tower|
+      config.vm.provider :virtualbox do |vb, override|
+        vb.customize ["modifyvm", :id, "--memory", "2048"]
+      end
     tower.vm.network :public_network, ip: "192.168.250.10"
   end
 
