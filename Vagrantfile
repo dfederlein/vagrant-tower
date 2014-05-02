@@ -38,8 +38,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "demo-site.yml"
     ansible.verbose = "v"
-    ansible.sudo = "true"
+    ansible.sudo = true
     ansible.sudo_user = "root"
-    ansible.host_key_checking = "false"
+    ansible.host_key_checking = false
   end
 end
