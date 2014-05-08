@@ -8,6 +8,7 @@
   - python-jinja2
   - python-devel
   - unzip
+  - pycrypto
 
 - name: pip ansible install
   action: command pip install ansible
