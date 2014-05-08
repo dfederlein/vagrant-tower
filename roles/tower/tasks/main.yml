@@ -12,6 +12,7 @@
 
 - name: get latest ansible
   get_url: url=http://releases.ansible.com/ansible/ansible-{{ansible_version}}.tar.gz
+    dest=/opt/ force=yes
 
 - name: extract ansible 
   command: chdir=/opt/ creates=/opt/ansible-{{ansible_version}} tar zxvf ansible-{{ansible_version}}.tar.gz
