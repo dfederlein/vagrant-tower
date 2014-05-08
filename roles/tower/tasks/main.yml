@@ -10,9 +10,14 @@
   - unzip
   - python-crypto2.6.x86_64
 
-- name: pip ansible install
-  action: command pip install ansible
-  sudo: yes
+- name: get latest ansible
+  get_url: http://releases.ansible.com/ansible/ansible-{{ansible_version}}.tar.gz
+
+- name: extract ansible 
+  command: chdir=/opt/ creates=/opt/ansible-{{ansible_version}} tar zxvf ansible-{{ansible_version}}.tar.gz
+
+- name: make install ansible 
+  command: chdir=/opt/ansible-{{ansible_version}} make install 
 
 - name: download Tower setup
   get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz
