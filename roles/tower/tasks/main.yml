@@ -8,7 +8,7 @@
   - python-jinja2
   - python-devel
   - unzip
-  - pycrypto
+  - python-crypto2.6.x86_64
 
 - name: pip ansible install
   action: command pip install ansible
