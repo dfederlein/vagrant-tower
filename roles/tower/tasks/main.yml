@@ -74,9 +74,9 @@
 - name: copy DB to source to Tower
   copy: src=db.json dest=/tmp
 
-- name: populate DB for tower
-  shell: awx-manage loaddata /tmp/db.json
+# - name: populate DB for tower
+#   shell: awx-manage loaddata /tmp/db.json 
 
-- name: import inventory file
-  shell: awx-manage inventory_import --source=/etc/ansible/hosts --inventory-name=Vagrant
+# - name: import inventory file
+#   shell: awx-manage inventory_import --source=/etc/ansible/hosts --inventory-name=Vagrant
 
