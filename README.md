@@ -5,7 +5,7 @@ This is a Tower demo environment in a box using Vagrant and VirtualBox.
 
 Host Machine Requirements:
 
-- Ansible (version 1.4 or later)
+- Ansible (version 1.6 or later)
 - Vagrant (version 1.4 or later)
 - VirtualBox (version 4.3 or later)
 - Git 
@@ -21,7 +21,7 @@ To install Vagrant and VirtualBox, please see http://docs.vagrantup.com/ and htt
 Demo Instructions
 -----------------
 
-This demo kit requires either a CentOS 6 or RHEL 6 vagrant box. You will need to add the box name and the url to the vagrant file. You can build your own vagrant box as long as that image is built according to the vagrant instructions and it includes the VirtualBox additions. Using an appropriate vagrant box from http://www.vagrantbox.es/ should also work. Please note:  Many of the vagrant boxes located at vagrantbox.es do not have the requisite python packages installed.  For this reason, I have included the raw commands to install them in the common role.
+This demo kit requires either a CentOS 6 or RHEL 6 vagrant box. You will need to add the box name and the url to the vagrant file. You can build your own vagrant box as long as that image is built according to the vagrant instructions and it includes the VirtualBox additions. Using an appropriate vagrant box from http://www.vagrantbox.es/ should also work. Please note:  Many of the vagrant boxes located at vagrantbox.es or minimal images on Amazon AWS do not have the requisite python packages installed.  For this reason, I have included the raw commands to install them in the common role.
 
 Currently, I am testing against this vagrantbox: centos65-x86_64-20131205 URL: https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box
 
@@ -41,29 +41,29 @@ When preparing a demo you need to make a decision if you would like to make the 
 
 #### Ansible Hosts File ####
 
-The demo provides an Ansible hosts file under roles/awx/files/hosts which should look like the below snippet. If you need to change the IPs for any reason you must edit this file so that the demo will function properly.
+The demo provides an Ansible hosts file under roles/tower/files/hosts which should look like the below snippet. If you need to change the IPs for any reason you must edit this file so that the demo will function properly.
 
 ```
 [Tower]
-tower ansible_ssh_host=192.168.251.10
+tower ansible_ssh_host=192.168.250.10
 
 [webservers]
-vm1 ansible_ssh_host=192.168.251.11
-vm2 ansible_ssh_host=192.168.251.12
+vm1 ansible_ssh_host=192.168.250.11
+vm2 ansible_ssh_host=192.168.250.12
 
 [dbservers]
-vm3 ansible_ssh_host=192.168.251.13
+vm3 ansible_ssh_host=192.168.250.13
 
 [lbservers]
-vm4 ansible_ssh_host=192.168.251.14
+vm4 ansible_ssh_host=192.168.250.14
 
 [monitoring]
-vm5 ansible_ssh_host=192.168.251.15
+vm5 ansible_ssh_host=192.168.250.15
 ```
 
 #### Vagrantfile ####
 
-The Vagrantfile allows us to make the networking configuration changes that will be used to create the demo VMs. If you are going to continue using private networking there are no changes required unless you need to change the IPs. If you are going to use a public network use the example below for each server (awx, vm1, vm2, web3, vm3, vm5). Remember that it is important that the provided Vagrantfile must be consistant with the Ansible hosts file.
+The Vagrantfile allows us to make the networking configuration changes that will be used to create the demo VMs. If you are going to continue using private networking there are no changes required unless you need to change the IPs. If you are going to use a public network use the example below for each server (tower, vm1, vm2, web3, vm3, vm5). Remember that it is important that the provided Vagrantfile must be consistant with the Ansible hosts file.
 
 Public (bridged NIC) IP:
 ```
@@ -89,39 +89,51 @@ vagrant up
 Running the Demo
 ----------------
 
-Now you can log into AWX at https://192.168.251.10 or the IP you have specified.  Further information about AWX can be found here: http://www.ansible.com/tower  (User guide can be downloaded from that webpage.)
+Now you can log into tower at https://192.168.251.10 or the IP you have specified.  Further information about tower can be found here: http://www.ansible.com/tower  (User guide can be downloaded from that webpage.)
 
-The user to log in as is:
+The admin user to log in as is:
 
 User: admin
 Password: password
 
-Once you have logged in, you can create your Organization, Users, Teams, Inventories and Credentials.  When creating Projects, you will be able to select the example lamp_haproxy playbook project folder (initial deploy of demo places that for you.)  To import the provided host inventory from CLI to AWX, log into the awx host, su to root and run the following commands:
+The standard user to log in as is:
+
+User: demo1
+Password: Password1!
+
+Once you have logged in Organization, Users, Teams, Inventories and Credentials should be prepopulated.  If logged in as the admin user, you will also find Projects populated with the examples and job templates ready to run.  If you changed the ip networking of the Vagrant boxes in the playbook as described above, you will need to reimport the inventory with your modified inventory file.  To re-import the host inventory from CLI to tower run the following commands:
 
 ```
 vagrant ssh tower
 sudo su -
-awx-manage inventory_import --source=/etc/ansible/hosts --inventory-name=(your created inventory name)
+awx-manage inventory_import --source=/etc/ansible/hosts --inventory-name=Vagrant --overwrite
 ```
 
-To use the ansible CLI on the awx host:
+Note: This file is placed by the tower role, then imported via the same playbook role task list.  If you change the file there before you run this demo, this will be automatic.  The above command is only needed if you change host IP address or host variable information within the /etc/ansible/hosts file and wish to re-import that to Tower.
+
+
+To use the ansible CLI on the tower host:
 ```
 vagrant ssh tower
 ```
 
 Located in /home/vagrant/playbooks are playbooks taken from https://github.com/ansible/ansible-examples.  This demo is designed to run these playbooks (though the included playbooks are modified somewhat from the canonical ansible repo.)  From the ansible CLI you can modify then execute these playbooks as you see fit to learn more about ansible CLI.
 
-Additionally, all playbooks from the ansible-examples repo ( https://github.com/ansible/ansible-examples ) have been added to /var/lib/awx/projects/ so you can use them when creating projects and job templates in Tower. 
+Additionally, playbooks from the ansible-examples repo ( https://github.com/ansible/ansible-examples ) have been added to /var/lib/awx/projects/ so you can use them when creating projects and job templates in Tower. 
 
 (NOTE: Included playbooks were adapted to work with this vagrant demo. You can view them at my fork of the originals: https://github.com/dfederlein/ansible-examples )
+
+NOTE: In order to run these playbooks, a variable called uservar must be set.  This is to allow for vagrant boxes where the remote ssh user is vagrant, as well as amazon AMI/Rackspace images using another ssh user.  See below for CLI use.
 
 For example, you can deploy lamp_haproxy as a stack of 5 machines (1 load balancer, 2 web servers, 1 DB server, 1 nagios server):
 ```
 cd /home/vagrant/playbooks/lamp_haproxy/
-ansible-playbook site.yml
+ansible-playbook site.yml -e "uservar=vagrant"
 ```
 
-Further material to get you started in ansible CLI can be found in this PDF: http://releases.ansible.com/ansible-tower/docs/tower_user_guide-latest.pdf
+Further material to get you started in ansible Tower can be found in this PDF: http://releases.ansible.com/ansible-tower/docs/tower_user_guide-latest.pdf 
+
+You can also gain a wealth of knowledge about Ansible CLI at http://docs.ansible.com
 
 **TROUBLESHOOTING**
 
@@ -133,6 +145,3 @@ Further material to get you started in ansible CLI can be found in this PDF: htt
 **TO-DO**
 
 - Agnosticity between CentOS and Ubuntu LTS
-- assume non-friendly vagrant box (ie: not ours) and setup box accordingly in initial launch plays.
-- Pre-populate AWX with org/team/user/credential/inventory/playbook information to match CLI env inventory and playbook.
-- Add AWS scripts to demostrate hybrid launches and orchestration
