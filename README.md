@@ -137,6 +137,7 @@ You can also gain a wealth of knowledge about Ansible CLI at http://docs.ansible
 
 **TROUBLESHOOTING**
 
+- What's this warning for mpx_powm_sec? This is a warning for out of date native centos packages. two perl lines are included in the main.yml of the tower role to address this.  Note this bug report: https://github.com/ansible/ansible/issues/6941 (Will be fixed in future versions of this playbook demo)
 - if for some reason the initial 'vagrant up' command fails, make sure you 'vagrant destroy' all machines before re-running the playbook or you may end up with missed plays.
 - if you have changed the IP addresses in the Vagrantfile from above, you may need to adjust group variables in the example lamp_haproxy playbook to match your changes.  For example, in group_vars/lbservers you may need to change iface: eth1 to eth0.  The same would be true for group_vars/webservers.
 - You will also need to change the file roles/tower/files/hosts to match IP addresses if you have changed the Vagrantfile provided to your own subnet.
