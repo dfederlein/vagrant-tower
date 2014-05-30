@@ -42,9 +42,6 @@
 - name: populate etc ansible config
   copy: src=ansible.cfg dest=/{{configdir}}
 
-- name: git clone playbook examples to awx projects folder
-  git: repo={{ playbookrepo }} dest={{ playbookdir }} accept_hostkey=yes
-
 - name: Vagrant user demo playbook directory
   file: path=/home/vagrant/playbooks owner=vagrant group=vagrant mode=755 state=directory
 
@@ -53,9 +50,6 @@
 
 - name: fix vagrant home permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
-
-- name: fix Tower permissions
-  shell: sudo chown -R awx.awx {{ playbookdir }}
 
 - name: git clone tower cli
   git: repo={{ clirepository }} dest={{ clibuilddir }}
