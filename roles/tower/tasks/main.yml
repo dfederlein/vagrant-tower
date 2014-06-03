@@ -10,15 +10,8 @@
   - unzip
   - python-crypto2.6.x86_64
 
-- name: get latest ansible
-  get_url: url=http://releases.ansible.com/ansible/ansible-{{ansible_version}}.tar.gz
-    dest=/opt/ force=yes
-
-- name: extract ansible 
-  command: chdir=/opt/ creates=/opt/ansible-{{ansible_version}} tar zxvf ansible-{{ansible_version}}.tar.gz
-
-- name: make install ansible 
-  command: chdir=/opt/ansible-{{ansible_version}} make install 
+- name: EPEL testing install of ansible
+  shell: yum install ansible --enablerepo epel-testing
 
 - name: download Tower setup
   get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz
@@ -59,9 +52,9 @@
 
 #NOTE: Next two tasks are dirty fix until I rework the ansible install process above for CentOS
 
-- name: first perl fix for mpx_powm_sec warning
-  shell: perl -p -i -e "s/^(if _fastmath is not None .*:)/#\1/" /usr/lib64/python2.6/site-packages/pycrypto-2.6.1-py2.6-linux-x86_64.egg/Crypto/Util/number.py
+# - name: first perl fix for mpx_powm_sec warning
+#   shell: perl -p -i -e "s/^(if _fastmath is not None .*:)/#\1/" /usr/lib64/python2.6/site-packages/pycrypto-2.6.1-py2.6-linux-x86_64.egg/Crypto/Util/number.py
 
-- name: second perl fix for mpx_powm_sec warning
-  shell: perl -p -i -e "s/^(\s*_warn.*Not using mpz_powm_sec.*)/#\1/" /usr/lib64/python2.6/site-packages/pycrypto-2.6.1-py2.6-linux-x86_64.egg/Crypto/Util/number.py
+# - name: second perl fix for mpx_powm_sec warning
+#   shell: perl -p -i -e "s/^(\s*_warn.*Not using mpz_powm_sec.*)/#\1/" /usr/lib64/python2.6/site-packages/pycrypto-2.6.1-py2.6-linux-x86_64.egg/Crypto/Util/number.py
 
