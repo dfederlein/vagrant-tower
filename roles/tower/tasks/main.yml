@@ -11,7 +11,7 @@
   - python-crypto2.6.x86_64
 
 - name: EPEL testing install of ansible
-  shell: yum install ansible --enablerepo epel-testing
+  shell: yum install -y ansible --enablerepo epel-testing
 
 - name: download Tower setup
   get_url: url=http://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-{{tower_version}}.tar.gz
