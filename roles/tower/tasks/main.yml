@@ -49,12 +49,3 @@
 
 - name: install tower cli
   shell: cd /tmp/awx-cli; make install
-
-#NOTE: Next two tasks are dirty fix until I rework the ansible install process above for CentOS
-
-# - name: first perl fix for mpx_powm_sec warning
-#   shell: perl -p -i -e "s/^(if _fastmath is not None .*:)/#\1/" /usr/lib64/python2.6/site-packages/pycrypto-2.6.1-py2.6-linux-x86_64.egg/Crypto/Util/number.py
-
-# - name: second perl fix for mpx_powm_sec warning
-#   shell: perl -p -i -e "s/^(\s*_warn.*Not using mpz_powm_sec.*)/#\1/" /usr/lib64/python2.6/site-packages/pycrypto-2.6.1-py2.6-linux-x86_64.egg/Crypto/Util/number.py
-
