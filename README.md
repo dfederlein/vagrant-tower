@@ -101,7 +101,13 @@ The standard user to log in as is:
 User: demo1
 Password: Password1!
 
-Once you have logged in Organization, Users, Teams, Inventories and Credentials should be prepopulated.  If logged in as the admin user, you will also find Projects populated with the examples and job templates ready to run.  If you changed the ip networking of the Vagrant boxes in the playbook as described above, you will need to reimport the inventory with your modified inventory file.  To re-import the host inventory from CLI to tower run the following commands:
+Once you have logged in Organization, Users, Teams, Inventories and Credentials won't be prepopulated.  You will need to add these things.  You will also need to add a project based on the SCM url below:
+
+https://github.com/dfederlein/ansible-examples.git
+
+Alternatively, you could write your own playbooks and place them locally in /var/lib/awx/projects or in your own public/private SCM repo.
+
+If you changed the ip networking of the Vagrant boxes in the playbook as described above, you will need to reimport the inventory with your modified inventory file.  To re-import the host inventory from CLI to tower run the following commands:
 
 ```
 vagrant ssh tower
