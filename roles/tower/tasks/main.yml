@@ -9,6 +9,7 @@
   - python-devel
   - unzip
   - python-crypto2.6.x86_64
+  - python-psphere
   - ansible 
 
 - name: download Tower setup
