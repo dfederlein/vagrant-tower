@@ -15,6 +15,9 @@
   with_items:
   - puppet
   - chef
+  
+- name: yum update all the things
+  yum: name=* state=latest
 
 - name: set up authorized keys for demo boxes
   authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
