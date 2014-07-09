@@ -19,6 +19,15 @@
 - name: yum update all the things
   yum: name=* state=latest
 
+- name: restart machine 
+  command: shutdown -r now "Ansible updates triggered"
+  async: 0
+  poll: 0
+  ignore_errors: true
+
+- name: waiting for server to come back
+  pause: seconds=45
+
 - name: set up authorized keys for demo boxes
   authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
     manage_dir=yes state=present 
