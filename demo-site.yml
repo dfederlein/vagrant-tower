@@ -1,12 +1,14 @@
 ---
 - name: Configure demo boxes
   hosts: all
+  sudo: true
 
   roles:
   - common
 
 - name: Deploy Tower
   hosts: tower
-
+  sudo: true
+  
   roles:
   - tower
