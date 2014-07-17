@@ -46,5 +46,5 @@
 - name: git clone tower cli
   git: repo={{ clirepository }} dest={{ clibuilddir }}
 
-- name: install tower cli
-  shell: cd /tmp/awx-cli; make install
+# - name: install tower cli
+#   shell: cd /tmp/awx-cli; make install

@@ -12,8 +12,12 @@ vm4 ansible_ssh_host=192.168.250.14
 [tag_Demo_monitoring]
 vm5 ansible_ssh_host=192.168.250.15
 
+[tag_Demo_tower]
+tower ansible_ssh_host=192.168.250.10
+
 [tag_Name_demoaws:children]
 tag_Demo_lbservers
 tag_Demo_webservers
 tag_Demo_dbservers
 tag_Demo_monitoring
+tag_Demo_tower
