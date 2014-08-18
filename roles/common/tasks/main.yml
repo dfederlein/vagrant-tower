@@ -19,6 +19,9 @@
 - name: yum update all the things
   yum: name=* state=latest
 
+- name: add routes
+  shell: sudo /sbin/route add default gw 192.168.250.254 eth1
+
 - name: restart machine 
   command: shutdown -r now "Ansible updates triggered"
   async: 0
@@ -26,7 +29,7 @@
   ignore_errors: true
 
 - name: waiting for server to come back
-  pause: seconds=45
+  pause: seconds=30
 
 - name: set up authorized keys for demo boxes
   authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
