@@ -19,9 +19,6 @@
 - name: yum update all the things
   yum: name=* state=latest
 
-- name: add routes
-  shell: sudo /sbin/route add default gw 192.168.250.254 eth1
-
 - name: restart machine 
   command: shutdown -r now "Ansible updates triggered"
   async: 0
@@ -37,3 +34,9 @@
 
 - name: fix permissions
   shell: sudo chown -R vagrant.vagrant /home/vagrant
+
+- name: add routes
+  shell: sudo /sbin/route add default gw 192.168.250.254 eth1
+
+- name: ifcfg-eth1 placement
+  copy: src=ifcfg-eth1 dest=/etc/sysconfig/network-scripts/ifcfg-eth1 
