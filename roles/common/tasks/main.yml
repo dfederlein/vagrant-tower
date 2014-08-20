@@ -25,6 +25,9 @@
 - name: turn off eth0
   template: src=ifcfg-eth0.j2 dest=/etc/sysconfig/network-scripts/ifcfg-eth0
 
+- name: fix resolv.conf
+  template: src=resolv.conf.j2 dest=/etc/resolv.conf
+
 - name: set up authorized keys for demo boxes
   authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
     manage_dir=yes state=present 
