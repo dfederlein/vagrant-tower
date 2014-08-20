@@ -25,6 +25,13 @@
 - name: turn off eth0
   template: src=ifcfg-eth0.j2 dest=/etc/sysconfig/network-scripts/ifcfg-eth0
 
+- name: set up authorized keys for demo boxes
+  authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
+    manage_dir=yes state=present 
+
+- name: fix permissions
+  shell: sudo chown -R vagrant.vagrant /home/vagrant
+
 - name: restart machine 
   command: shutdown -r now "Ansible updates triggered"
   async: 0
@@ -33,10 +40,3 @@
 
 - name: waiting for server to come back
   pause: seconds=30
-
-- name: set up authorized keys for demo boxes
-  authorized_key: user=vagrant key="{{ lookup('file', 'id_rsa.pub') }}"
-    manage_dir=yes state=present 
-
-- name: fix permissions
-  shell: sudo chown -R vagrant.vagrant /home/vagrant
