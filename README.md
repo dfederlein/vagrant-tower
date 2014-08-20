@@ -5,8 +5,8 @@ This is a Tower demo environment in a box using Vagrant and VirtualBox.
 
 Host Machine Requirements:
 
-- Ansible (version 1.6 or later)
-- Vagrant (version 1.4 or later)
+- Ansible (version 1.7 or later)
+- Vagrant (version 1.6 or later)
 - VirtualBox (version 4.3 or later)
 - Git 
 - An Internet connection to create the demo environment.
@@ -147,7 +147,8 @@ You can also gain a wealth of knowledge about Ansible CLI at http://docs.ansible
 - if for some reason the initial 'vagrant up' command fails, make sure you 'vagrant destroy' all machines before re-running the playbook or you may end up with missed plays.
 - if you have changed the IP addresses in the Vagrantfile from above, you may need to adjust group variables in the example lamp_haproxy playbook to match your changes.  For example, in group_vars/lbservers you may need to change iface: eth1 to eth0.  The same would be true for group_vars/webservers.
 - You will also need to change the file roles/tower/files/hosts to match IP addresses if you have changed the Vagrantfile provided to your own subnet.
-- Using the static IPs above with VirtualBox means each machine will have two interfaces on two subnets.  One will be the default NAT'ed subnet for VirtualBox, the other the subnet you've specified.  This is true whether using private or public settings.  Adjust wanted communication paths in your playbooks accordingly, all subnets are functional on these hosts.
+- Using the static IPs above with VirtualBox means each machine will have two interfaces on two subnets.  One will be the default NAT'ed subnet for VirtualBox, the other the subnet you've specified.  This is true whether using private or public settings.  Adjust wanted communication paths in your playbooks accordingly, all subnets are functional on these hosts.  
+- NOTE:  Vagrant does not set default routes for public interfaces.  See this link for details: https://github.com/mitchellh/vagrant/issues/2389
 
 **TO-DO**
 
