@@ -22,6 +22,9 @@
 - name: add routes
   template: src=ifcfg-eth1.j2 dest=/etc/sysconfig/network-scripts/ifcfg-eth1
 
+- name: turn off eth0
+  template: src=ifcfg-eth0.j2 dest=/etc/sysconfig/network-scripts/ifcfg-eth0
+
 - name: restart machine 
   command: shutdown -r now "Ansible updates triggered"
   async: 0
