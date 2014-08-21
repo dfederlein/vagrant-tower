@@ -3,7 +3,6 @@
   yum: name={{ item }} state=latest enablerepo=epel-testing
   with_items:
   - git
-  - supervisor
   - python-pip
   - python-jinja2
   - python-devel
