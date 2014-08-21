@@ -2,6 +2,8 @@
 - name: Configure demo boxes
   hosts: all
   sudo: true
+  vars_files:
+  - netvars/net.yml
 
   roles:
   - common
@@ -9,6 +11,8 @@
 - name: Deploy Tower
   hosts: tower
   sudo: true
+  vars_files:
+  - netvars/net.yml
   
   roles:
   - tower
