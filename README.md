@@ -1,6 +1,10 @@
 Ansible Tower Demo-In-A-Box
 ===========================
 
+**NOTE**
+
+There are some changes to this demo that disable the internal virtualbox networks once the requisite provisioning is done on initial "vagrant up" command.  Please review instructions below carefully.
+
 This is a Tower demo environment in a box using Vagrant and VirtualBox.
 
 Host Machine Requirements:
@@ -41,7 +45,7 @@ When preparing a demo you need to make a decision if you would like to make the 
 
 #### Ansible Hosts File ####
 
-The demo provides an Ansible hosts file under roles/tower/files/hosts which should look like the below snippet. If you need to change the IPs for any reason you must edit this file so that the demo will function properly.
+The demo provides an Ansible hosts file under roles/tower/files/hosts which should look like the below snippet. If you need to change the IPs you must edit the netvars/net.yml file to reflect the subnet and IP addresses available on your network, as well as the gateway/dns services you wish.
 
 ```
 [Tower]
@@ -107,7 +111,7 @@ https://github.com/dfederlein/ansible-examples.git
 
 Alternatively, you could write your own playbooks and place them locally in /var/lib/awx/projects or in your own public/private SCM repo.
 
-If you changed the ip networking of the Vagrant boxes in the playbook as described above, you will need to reimport the inventory with your modified inventory file.  To re-import the host inventory from CLI to tower run the following commands:
+To import the vagrant inventory, create an inventory in Tower, (in this example named Vagrant) and import as follows:
 
 ```
 vagrant ssh tower
@@ -115,7 +119,7 @@ sudo su -
 awx-manage inventory_import --source=/etc/ansible/hosts --inventory-name=Vagrant --overwrite
 ```
 
-Note: This file is placed by the tower role, then imported via the same playbook role task list.  If you change the file there before you run this demo, this will be automatic.  The above command is only needed if you change host IP address or host variable information within the /etc/ansible/hosts file and wish to re-import that to Tower.
+Note: This file is placed by the tower role, then imported via the same playbook role task list.  If you change the file there before you run this demo, this will be automatic.  The above command is only needed to populate vagrant hosts into inventory.
 
 
 To use the ansible CLI on the tower host:
