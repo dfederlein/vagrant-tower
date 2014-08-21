@@ -40,6 +40,8 @@
   async: 0
   poll: 0
   ignore_errors: true
+  when: inventory_hostname != "tower"
 
 - name: waiting for server to come back
   pause: seconds=30
+  when: inventory_hostname != "tower"

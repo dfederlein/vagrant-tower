@@ -45,3 +45,12 @@
 
 - name: install tower cli
   shell: pip install ansible-tower-cli
+
+- name: restart machine 
+  command: shutdown -r now "Ansible updates triggered"
+  async: 0
+  poll: 0
+  ignore_errors: true
+
+- name: waiting for server to come back
+  pause: seconds=30
