@@ -1,14 +1,8 @@
 ---
 # This role contains common plays that will run on all nodes.
 
-- name: Raw bootstrap for python
-  raw: yum -y install python libselinux-python
-
-- name: Create the repository for EPEL
-  copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
-
-- name: Create the GPG key for EPEL
-  copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+- name: Install EPEL 7
+  yum: name=http://fedora.mirrors.pair.com/epel/7/x86_64/e/epel-release-7-1.noarch.rpm state=present
 
 - name: remove some useless packages
   yum: name={{ item }} state=absent
