@@ -4,10 +4,7 @@
   with_items:
   - git
   - python-pip
-  - python-jinja2
-  - python-devel
   - unzip
-  - python-crypto2.6.x86_64
   - python-psphere
   - ansible 
 
