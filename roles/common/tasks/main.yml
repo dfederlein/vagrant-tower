@@ -4,14 +4,14 @@
 - name: Install EPEL 7
   yum: name=http://fedora.mirrors.pair.com/epel/7/x86_64/e/epel-release-7-1.noarch.rpm state=present
 
+- name: yum update all the things
+  yum: name=* state=latest
+
 - name: remove some useless packages
   yum: name={{ item }} state=absent
   with_items:
   - puppet
   - chef
-  
-- name: yum update all the things
-  yum: name=* state=latest
 
 - name: add routes
   template: src=ifcfg-eth1.j2 dest=/etc/sysconfig/network-scripts/ifcfg-eth1
