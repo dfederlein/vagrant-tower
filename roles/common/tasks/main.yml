@@ -2,7 +2,7 @@
 # This role contains common plays that will run on all nodes.
 
 - name: Install EPEL 7
-  yum: name=http://fedora.mirrors.pair.com/epel/7/x86_64/e/epel-release-7-1.noarch.rpm state=present
+  yum: name=http://fedora.mirrors.pair.com/epel/7/x86_64/e/epel-release-7-5.noarch.rpm state=present
 
 - name: yum update all the things
   yum: name=* state=latest
